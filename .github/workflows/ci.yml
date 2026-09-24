@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install clean environment
+        # apps/api has no pyproject of its own: install the declared root
+        # dependencies plus the test toolchain explicitly.
+        run: |
+          python -m pip install --upgrade pip
+          pip install fastapi "uvicorn[standard]" pydantic numpy pandas scikit-learn scipy statsmodels joblib python-multipart httpx pytest ruff
+
+      - name: Lint (ruff)
+        run: |
+          ruff check apps/api/modelxray --select E9,F63,F7,F82,F401 --ignore F401 || true
+          ruff check apps/api/modelxray --select E9,F63,F7,F82
+
+      - name: Run test suite
+        run: pytest -q
+        env:
+          PYTHONPATH: apps/api
+
+      - name: Benchmark smoke test
+        run: python -m tests.bench.run_bench --seeds 2 --budget 12 --out benchmark_ci
+        env:
+          PYTHONPATH: apps/api
+
+      - name: Upload benchmark artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-results-${{ matrix.python-version }}
+          path: |
+            benchmark_ci/benchmark_results.json
+            benchmark_ci/benchmark_report.md
+          if-no-files-found: ignore

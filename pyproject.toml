@@ -1,0 +1,20 @@
+[project]
+name = "modelxray"
+version = "1.0.0"
+description = "Autonomous ML failure discovery and counterexample engine with evidence-backed failure atlas"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "pydantic>=2.8",
+  "numpy>=2.0",
+  "pandas>=2.2",
+  "scikit-learn>=1.5",
+  "scipy>=1.13",
+  "statsmodels>=0.14",
+  "joblib>=1.4",
+  "python-multipart>=0.0.9",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["apps/api"]

@@ -1,0 +1,3610 @@
+{
+  "seeds": 30,
+  "cases_per_seed": 8,
+  "total_cases": 240,
+  "exact_case_accuracy": 1.0,
+  "failed_cases": [],
+  "interpretation": "Regression benchmark validates status-count behavior on controlled version transitions. It is not a causal correctness guarantee.",
+  "rows": [
+    {
+      "seed": 100,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 100,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 100,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 100,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 100,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 100,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 100,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 100,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 101,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 101,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 101,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 101,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 101,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 101,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 101,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 101,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 102,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 102,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 102,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 102,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 102,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 102,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 102,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 102,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 103,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 103,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 103,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 103,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 103,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 103,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 103,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 103,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 104,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 104,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 104,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 104,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 104,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 104,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 104,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 104,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 105,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 105,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 105,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 105,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 105,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 105,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 105,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 105,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 106,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 106,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 106,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 106,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 106,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 106,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 106,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 106,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 107,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 107,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 107,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 107,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 107,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 107,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 107,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 107,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 108,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 108,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 108,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 108,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 108,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 108,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 108,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 108,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 109,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 109,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 109,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 109,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 109,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 109,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 109,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 109,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 110,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 110,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 110,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 110,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 110,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 110,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 110,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 110,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 111,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 111,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 111,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 111,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 111,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 111,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 111,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 111,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 112,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 112,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 112,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 112,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 112,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 112,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 112,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 112,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 113,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 113,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 113,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 113,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 113,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 113,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 113,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 113,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 114,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 114,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 114,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 114,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 114,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 114,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 114,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 114,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 115,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 115,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 115,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 115,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 115,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 115,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 115,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 115,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 116,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 116,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 116,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 116,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 116,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 116,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 116,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 116,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 117,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 117,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 117,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 117,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 117,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 117,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 117,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 117,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 118,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 118,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 118,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 118,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 118,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 118,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 118,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 118,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 119,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 119,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 119,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 119,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 119,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 119,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 119,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 119,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 120,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 120,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 120,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 120,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 120,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 120,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 120,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 120,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 121,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 121,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 121,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 121,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 121,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 121,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 121,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 121,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 122,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 122,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 122,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 122,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 122,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 122,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 122,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 122,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 123,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 123,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 123,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 123,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 123,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 123,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 123,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 123,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 124,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 124,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 124,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 124,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 124,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 124,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 124,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 124,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 125,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 125,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 125,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 125,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 125,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 125,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 125,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 125,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 126,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 126,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 126,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 126,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 126,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 126,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 126,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 126,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 127,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 127,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 127,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 127,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 127,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 127,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 127,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 127,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 128,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 128,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 128,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 128,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 128,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 128,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 128,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 128,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 129,
+      "case": "persistent_exact_cluster",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 129,
+      "case": "persistent_threshold_drift",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 129,
+      "case": "fixed",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 129,
+      "case": "new",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 129,
+      "case": "replacement",
+      "expected": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 0,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 129,
+      "case": "split_region",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 0,
+        "NEW": 1
+      },
+      "exact": true
+    },
+    {
+      "seed": 129,
+      "case": "merge_regions",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 0
+      },
+      "exact": true
+    },
+    {
+      "seed": 129,
+      "case": "unrelated_clusters",
+      "expected": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "actual": {
+        "PERSISTENT": 1,
+        "FIXED": 1,
+        "NEW": 1
+      },
+      "exact": true
+    }
+  ]
+}

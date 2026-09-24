@@ -1,0 +1,815 @@
+{
+  "config": {
+    "seeds": 5,
+    "budget": 16,
+    "base_seed": 100,
+    "engine_defaults": {
+      "alpha": 0.05,
+      "min_validation_gap": 0.03,
+      "interaction_fraction": 0.35
+    }
+  },
+  "results": {
+    "S1_main_effect": {
+      "seeds": 5,
+      "crashed": 0,
+      "discovery_rate": 0.8,
+      "mean_region_overlap_f1": 0.851,
+      "mean_tests_to_discovery": 1.0,
+      "discovery_efficiency": 0.9375,
+      "mean_promoted_failures": 5.2,
+      "mean_interaction_promoted": 1.4,
+      "mean_cx_distance": 0.7719,
+      "cx_validity_rate": 0.2,
+      "mean_predict_calls": 448.2,
+      "mean_runtime_s": 0.302,
+      "reproducibility_jaccard": 0.0
+    },
+    "S2_interaction": {
+      "seeds": 5,
+      "crashed": 0,
+      "discovery_rate": 0.2,
+      "mean_region_overlap_f1": 0.2859,
+      "mean_tests_to_discovery": 2.0,
+      "discovery_efficiency": 0.875,
+      "mean_promoted_failures": 4.6,
+      "mean_interaction_promoted": 1.0,
+      "mean_cx_distance": 0.64148,
+      "cx_validity_rate": 0.2,
+      "mean_predict_calls": 371.2,
+      "mean_runtime_s": 0.255,
+      "reproducibility_jaccard": 0.0
+    },
+    "S3_boundary_instability": {
+      "seeds": 5,
+      "crashed": 0,
+      "discovery_rate": 0.0,
+      "mean_region_overlap_f1": 0.1168,
+      "mean_tests_to_discovery": null,
+      "discovery_efficiency": null,
+      "mean_promoted_failures": 2.0,
+      "mean_interaction_promoted": 1.4,
+      "mean_cx_distance": 1.37091,
+      "cx_validity_rate": 1.0,
+      "mean_predict_calls": 219.0,
+      "mean_runtime_s": 0.159,
+      "reproducibility_jaccard": 0.0
+    },
+    "S4_covariate_shift": {
+      "seeds": 5,
+      "crashed": 0,
+      "discovery_rate": 1.0,
+      "mean_region_overlap_f1": 0.9737,
+      "mean_tests_to_discovery": 1.0,
+      "discovery_efficiency": 0.9375,
+      "mean_promoted_failures": 5.8,
+      "mean_interaction_promoted": 2.2,
+      "mean_cx_distance": 0.49469,
+      "cx_validity_rate": 0.8,
+      "mean_predict_calls": 441.6,
+      "mean_runtime_s": 0.303,
+      "reproducibility_jaccard": 0.0
+    },
+    "S5_noisy_feature": {
+      "seeds": 5,
+      "crashed": 0,
+      "discovery_rate": 0.6,
+      "mean_region_overlap_f1": 0.7141,
+      "mean_tests_to_discovery": 1.0,
+      "discovery_efficiency": 0.9375,
+      "mean_promoted_failures": 6.8,
+      "mean_interaction_promoted": 1.6,
+      "mean_cx_distance": 0.5744,
+      "cx_validity_rate": 0.4,
+      "mean_predict_calls": 434.8,
+      "mean_runtime_s": 0.297,
+      "reproducibility_jaccard": 0.0
+    },
+    "S6_correlated_features": {
+      "seeds": 5,
+      "crashed": 0,
+      "discovery_rate": 0.8,
+      "mean_region_overlap_f1": 0.8412,
+      "mean_tests_to_discovery": 1.0,
+      "discovery_efficiency": 0.9375,
+      "mean_promoted_failures": 5.6,
+      "mean_interaction_promoted": 1.2,
+      "mean_cx_distance": 0.35482,
+      "cx_validity_rate": 0.6,
+      "mean_predict_calls": 485.8,
+      "mean_runtime_s": 0.326,
+      "reproducibility_jaccard": 0.0
+    },
+    "S7_class_imbalance": {
+      "seeds": 5,
+      "crashed": 0,
+      "discovery_rate": 0.0,
+      "mean_region_overlap_f1": 0.0466,
+      "mean_tests_to_discovery": null,
+      "discovery_efficiency": null,
+      "mean_promoted_failures": 2.0,
+      "mean_interaction_promoted": 0.4,
+      "mean_cx_distance": 2.65108,
+      "cx_validity_rate": 0.75,
+      "mean_predict_calls": 198.6,
+      "mean_runtime_s": 0.15,
+      "reproducibility_jaccard": 0.0
+    },
+    "C0_no_failure": {
+      "seeds": 5,
+      "crashed": 0,
+      "discovery_rate": 0.4,
+      "mean_region_overlap_f1": 0.0,
+      "mean_tests_to_discovery": null,
+      "discovery_efficiency": null,
+      "mean_promoted_failures": 0.4,
+      "mean_interaction_promoted": 0.4,
+      "mean_cx_distance": 1.39129,
+      "cx_validity_rate": 0.5,
+      "mean_predict_calls": 52.0,
+      "mean_runtime_s": 1.3,
+      "reproducibility_jaccard": 0.3,
+      "no_fault_alarm_rate": 0.4,
+      "false_discovery_rate_note": "no-fault alarm rate; includes real stochastic model weaknesses. See C0b for fabrication-only FDR."
+    },
+    "C1_global_noise": {
+      "seeds": 5,
+      "crashed": 0,
+      "discovery_rate": 0.0,
+      "mean_region_overlap_f1": 0.0481,
+      "mean_tests_to_discovery": null,
+      "discovery_efficiency": null,
+      "mean_promoted_failures": 0.8,
+      "mean_interaction_promoted": 0.4,
+      "mean_cx_distance": 0.93274,
+      "cx_validity_rate": 0.5,
+      "mean_predict_calls": 105.4,
+      "mean_runtime_s": 2.668,
+      "reproducibility_jaccard": 0.3,
+      "no_fault_alarm_rate": 0.0,
+      "false_discovery_rate_note": "no-fault alarm rate; includes real stochastic model weaknesses. See C0b for fabrication-only FDR."
+    },
+    "C2_duplicated_features": {
+      "seeds": 5,
+      "crashed": 0,
+      "discovery_rate": 0.4,
+      "mean_region_overlap_f1": 0.0,
+      "mean_tests_to_discovery": null,
+      "discovery_efficiency": null,
+      "mean_promoted_failures": 0.4,
+      "mean_interaction_promoted": 0.4,
+      "mean_cx_distance": 2.78021,
+      "cx_validity_rate": 0.5,
+      "mean_predict_calls": 45.2,
+      "mean_runtime_s": 1.165,
+      "reproducibility_jaccard": 0.3,
+      "no_fault_alarm_rate": 0.4,
+      "false_discovery_rate_note": "no-fault alarm rate; includes real stochastic model weaknesses. See C0b for fabrication-only FDR."
+    },
+    "C0b_self_consistency": {
+      "seeds": 5,
+      "crashed": 0,
+      "discovery_rate": 0.0,
+      "mean_region_overlap_f1": 0.0,
+      "mean_tests_to_discovery": null,
+      "discovery_efficiency": null,
+      "mean_promoted_failures": 0.0,
+      "mean_interaction_promoted": 0.0,
+      "mean_cx_distance": null,
+      "cx_validity_rate": null,
+      "mean_predict_calls": 2.0,
+      "mean_runtime_s": 0.077,
+      "reproducibility_jaccard": 1.0,
+      "false_discovery_rate": 0.0
+    }
+  },
+  "per_seed": {
+    "S1_main_effect": [
+      {
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.9758812615955473,
+        "tests_to_discovery": 1,
+        "promoted": 4,
+        "cx_distance": 1.4903275078540452,
+        "cx_valid": false,
+        "predict_calls": 496,
+        "runtime_s": 0.326
+      },
+      {
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.9716312056737589,
+        "tests_to_discovery": 1,
+        "promoted": 6,
+        "cx_distance": 0.1316918465115765,
+        "cx_valid": false,
+        "predict_calls": 479,
+        "runtime_s": 0.325
+      },
+      {
+        "seed": 102,
+        "discovered": true,
+        "f1": 0.9868667917448405,
+        "tests_to_discovery": 1,
+        "promoted": 5,
+        "cx_distance": 0.6083657339678024,
+        "cx_valid": false,
+        "predict_calls": 427,
+        "runtime_s": 0.29
+      },
+      {
+        "seed": 103,
+        "discovered": true,
+        "f1": 1.0,
+        "tests_to_discovery": 1,
+        "promoted": 5,
+        "cx_distance": 1.3816996807474264,
+        "cx_valid": true,
+        "predict_calls": 394,
+        "runtime_s": 0.272
+      },
+      {
+        "seed": 104,
+        "discovered": false,
+        "f1": 0.32057416267942584,
+        "tests_to_discovery": null,
+        "promoted": 6,
+        "cx_distance": 0.24740607976167972,
+        "cx_valid": false,
+        "predict_calls": 445,
+        "runtime_s": 0.299
+      }
+    ],
+    "S2_interaction": [
+      {
+        "seed": 100,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 1,
+        "cx_distance": 0.8819593891624775,
+        "cx_valid": false,
+        "predict_calls": 161,
+        "runtime_s": 0.12
+      },
+      {
+        "seed": 101,
+        "discovered": false,
+        "f1": 0.41441441441441446,
+        "tests_to_discovery": null,
+        "promoted": 4,
+        "cx_distance": 0.585759215969381,
+        "cx_valid": false,
+        "predict_calls": 360,
+        "runtime_s": 0.249
+      },
+      {
+        "seed": 102,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 4,
+        "cx_distance": 0.9255371943262594,
+        "cx_valid": false,
+        "predict_calls": 394,
+        "runtime_s": 0.271
+      },
+      {
+        "seed": 103,
+        "discovered": false,
+        "f1": 0.38746438746438744,
+        "tests_to_discovery": null,
+        "promoted": 7,
+        "cx_distance": 0.29284723131272583,
+        "cx_valid": true,
+        "predict_calls": 428,
+        "runtime_s": 0.291
+      },
+      {
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.6276150627615064,
+        "tests_to_discovery": 2,
+        "promoted": 7,
+        "cx_distance": 0.5213104439241817,
+        "cx_valid": false,
+        "predict_calls": 513,
+        "runtime_s": 0.345
+      }
+    ],
+    "S3_boundary_instability": [
+      {
+        "seed": 100,
+        "discovered": false,
+        "f1": 0.11210762331838567,
+        "tests_to_discovery": null,
+        "promoted": 2,
+        "cx_distance": 1.3117192446854475,
+        "cx_valid": true,
+        "predict_calls": 320,
+        "runtime_s": 0.222
+      },
+      {
+        "seed": 101,
+        "discovered": false,
+        "f1": 0.11077542799597181,
+        "tests_to_discovery": null,
+        "promoted": 1,
+        "cx_distance": 1.140379071492835,
+        "cx_valid": true,
+        "predict_calls": 110,
+        "runtime_s": 0.093
+      },
+      {
+        "seed": 102,
+        "discovered": false,
+        "f1": 0.12939841089670828,
+        "tests_to_discovery": null,
+        "promoted": 1,
+        "cx_distance": 1.5365840647399318,
+        "cx_valid": true,
+        "predict_calls": 127,
+        "runtime_s": 0.101
+      },
+      {
+        "seed": 103,
+        "discovered": false,
+        "f1": 0.11752786220871328,
+        "tests_to_discovery": null,
+        "promoted": 1,
+        "cx_distance": 0.8969895241988023,
+        "cx_valid": true,
+        "predict_calls": 144,
+        "runtime_s": 0.11
+      },
+      {
+        "seed": 104,
+        "discovered": false,
+        "f1": 0.11421319796954314,
+        "tests_to_discovery": null,
+        "promoted": 5,
+        "cx_distance": 1.9688930429116867,
+        "cx_valid": true,
+        "predict_calls": 394,
+        "runtime_s": 0.27
+      }
+    ],
+    "S4_covariate_shift": [
+      {
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.9838420107719928,
+        "tests_to_discovery": 1,
+        "promoted": 5,
+        "cx_distance": 0.15807962850525248,
+        "cx_valid": true,
+        "predict_calls": 513,
+        "runtime_s": 0.347
+      },
+      {
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.9980806142034548,
+        "tests_to_discovery": 1,
+        "promoted": 6,
+        "cx_distance": 0.36162389662804884,
+        "cx_valid": false,
+        "predict_calls": 445,
+        "runtime_s": 0.302
+      },
+      {
+        "seed": 102,
+        "discovered": true,
+        "f1": 0.9586466165413534,
+        "tests_to_discovery": 1,
+        "promoted": 6,
+        "cx_distance": 0.6175280504635434,
+        "cx_valid": true,
+        "predict_calls": 411,
+        "runtime_s": 0.294
+      },
+      {
+        "seed": 103,
+        "discovered": true,
+        "f1": 0.969147005444646,
+        "tests_to_discovery": 1,
+        "promoted": 4,
+        "cx_distance": 0.14301120816987717,
+        "cx_valid": true,
+        "predict_calls": 428,
+        "runtime_s": 0.292
+      },
+      {
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.9586466165413534,
+        "tests_to_discovery": 1,
+        "promoted": 8,
+        "cx_distance": 1.1932155353850373,
+        "cx_valid": true,
+        "predict_calls": 411,
+        "runtime_s": 0.279
+      }
+    ],
+    "S5_noisy_feature": [
+      {
+        "seed": 100,
+        "discovered": false,
+        "f1": 0.36603773584905663,
+        "tests_to_discovery": null,
+        "promoted": 7,
+        "cx_distance": 0.12428084339798817,
+        "cx_valid": true,
+        "predict_calls": 530,
+        "runtime_s": 0.351
+      },
+      {
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.975796178343949,
+        "tests_to_discovery": 1,
+        "promoted": 8,
+        "cx_distance": 0.6535125805787179,
+        "cx_valid": false,
+        "predict_calls": 394,
+        "runtime_s": 0.273
+      },
+      {
+        "seed": 102,
+        "discovered": false,
+        "f1": 0.2314990512333966,
+        "tests_to_discovery": null,
+        "promoted": 4,
+        "cx_distance": 0.1315029870468929,
+        "cx_valid": false,
+        "predict_calls": 479,
+        "runtime_s": 0.333
+      },
+      {
+        "seed": 103,
+        "discovered": true,
+        "f1": 0.9986648865153538,
+        "tests_to_discovery": 1,
+        "promoted": 8,
+        "cx_distance": 0.8744736668559137,
+        "cx_valid": false,
+        "predict_calls": 343,
+        "runtime_s": 0.238
+      },
+      {
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.9987484355444306,
+        "tests_to_discovery": 1,
+        "promoted": 7,
+        "cx_distance": 1.0882365694608538,
+        "cx_valid": true,
+        "predict_calls": 428,
+        "runtime_s": 0.289
+      }
+    ],
+    "S6_correlated_features": [
+      {
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.9267399267399267,
+        "tests_to_discovery": 1,
+        "promoted": 4,
+        "cx_distance": 0.7222753137431475,
+        "cx_valid": false,
+        "predict_calls": 479,
+        "runtime_s": 0.325
+      },
+      {
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.9716312056737589,
+        "tests_to_discovery": 1,
+        "promoted": 6,
+        "cx_distance": 0.08313233574830176,
+        "cx_valid": true,
+        "predict_calls": 496,
+        "runtime_s": 0.337
+      },
+      {
+        "seed": 102,
+        "discovered": true,
+        "f1": 0.9868667917448405,
+        "tests_to_discovery": 1,
+        "promoted": 8,
+        "cx_distance": 0.13283588923588152,
+        "cx_valid": false,
+        "predict_calls": 513,
+        "runtime_s": 0.338
+      },
+      {
+        "seed": 103,
+        "discovered": true,
+        "f1": 1.0,
+        "tests_to_discovery": 1,
+        "promoted": 5,
+        "cx_distance": 0.7220688303334717,
+        "cx_valid": true,
+        "predict_calls": 445,
+        "runtime_s": 0.303
+      },
+      {
+        "seed": 104,
+        "discovered": false,
+        "f1": 0.32057416267942584,
+        "tests_to_discovery": null,
+        "promoted": 5,
+        "cx_distance": 0.11377184965241716,
+        "cx_valid": true,
+        "predict_calls": 496,
+        "runtime_s": 0.326
+      }
+    ],
+    "S7_class_imbalance": [
+      {
+        "seed": 100,
+        "discovered": false,
+        "f1": 0.04477611940298507,
+        "tests_to_discovery": null,
+        "promoted": 1,
+        "cx_distance": 6.793968386695872,
+        "cx_valid": true,
+        "predict_calls": 110,
+        "runtime_s": 0.092
+      },
+      {
+        "seed": 101,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.023
+      },
+      {
+        "seed": 102,
+        "discovered": false,
+        "f1": 0.040268456375838924,
+        "tests_to_discovery": null,
+        "promoted": 1,
+        "cx_distance": 1.803693254607766,
+        "cx_valid": true,
+        "predict_calls": 127,
+        "runtime_s": 0.105
+      },
+      {
+        "seed": 103,
+        "discovered": false,
+        "f1": 0.1324503311258278,
+        "tests_to_discovery": null,
+        "promoted": 3,
+        "cx_distance": 0.19594741352836065,
+        "cx_valid": false,
+        "predict_calls": 360,
+        "runtime_s": 0.252
+      },
+      {
+        "seed": 104,
+        "discovered": false,
+        "f1": 0.015384615384615384,
+        "tests_to_discovery": null,
+        "promoted": 5,
+        "cx_distance": 1.8107222089932637,
+        "cx_valid": true,
+        "predict_calls": 394,
+        "runtime_s": 0.277
+      }
+    ],
+    "C0_no_failure": [
+      {
+        "seed": 100,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.078
+      },
+      {
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 1,
+        "cx_distance": 1.604370987960356,
+        "cx_valid": false,
+        "predict_calls": 127,
+        "runtime_s": 3.081
+      },
+      {
+        "seed": 102,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.075
+      },
+      {
+        "seed": 103,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.076
+      },
+      {
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 1,
+        "cx_distance": 1.178203429001152,
+        "cx_valid": true,
+        "predict_calls": 127,
+        "runtime_s": 3.19
+      }
+    ],
+    "C1_global_noise": [
+      {
+        "seed": 100,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.081
+      },
+      {
+        "seed": 101,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.077
+      },
+      {
+        "seed": 102,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.079
+      },
+      {
+        "seed": 103,
+        "discovered": false,
+        "f1": 0.17063492063492064,
+        "tests_to_discovery": null,
+        "promoted": 3,
+        "cx_distance": 0.9538233281677662,
+        "cx_valid": false,
+        "predict_calls": 377,
+        "runtime_s": 9.514
+      },
+      {
+        "seed": 104,
+        "discovered": false,
+        "f1": 0.06976744186046512,
+        "tests_to_discovery": null,
+        "promoted": 1,
+        "cx_distance": 0.9116616172582361,
+        "cx_valid": true,
+        "predict_calls": 144,
+        "runtime_s": 3.589
+      }
+    ],
+    "C2_duplicated_features": [
+      {
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 1,
+        "cx_distance": 2.1552906456449423,
+        "cx_valid": true,
+        "predict_calls": 110,
+        "runtime_s": 2.799
+      },
+      {
+        "seed": 101,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.077
+      },
+      {
+        "seed": 102,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.076
+      },
+      {
+        "seed": 103,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.077
+      },
+      {
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 1,
+        "cx_distance": 3.4051247729522163,
+        "cx_valid": false,
+        "predict_calls": 110,
+        "runtime_s": 2.797
+      }
+    ],
+    "C0b_self_consistency": [
+      {
+        "seed": 100,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.078
+      },
+      {
+        "seed": 101,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.078
+      },
+      {
+        "seed": 102,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.077
+      },
+      {
+        "seed": 103,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.077
+      },
+      {
+        "seed": 104,
+        "discovered": false,
+        "f1": 0.0,
+        "tests_to_discovery": null,
+        "promoted": 0,
+        "cx_distance": null,
+        "cx_valid": null,
+        "predict_calls": 2,
+        "runtime_s": 0.076
+      }
+    ]
+  }
+}

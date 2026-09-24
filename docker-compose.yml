@@ -1,0 +1,17 @@
+services:
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+  web:
+    image: node:22-alpine
+    working_dir: /app
+    volumes:
+      - ./apps/web:/app
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install --no-audit --no-fund && npm run dev"
+    environment:
+      NEXT_TELEMETRY_DISABLED: "1"

@@ -1,0 +1,59 @@
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUNBUFFERED: "1"
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      NUMEXPR_NUM_THREADS: "1"
+    volumes:
+      - modelxray-data:/app/data
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 256
+    mem_limit: 2g
+    cpus: 2.0
+    networks:
+      - appnet
+
+  web:
+    image: node:22-alpine
+    working_dir: /app
+    restart: unless-stopped
+    volumes:
+      - ../apps/web:/app
+      - web-node-modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    command: sh -c "npm ci --no-audit --no-fund && npm run dev"
+    environment:
+      NEXT_TELEMETRY_DISABLED: "1"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 256
+    mem_limit: 1g
+    cpus: 1.5
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge
+
+volumes:
+  modelxray-data:
+  web-node-modules:

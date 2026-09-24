@@ -1,0 +1,937 @@
+{
+  "seeds": 3,
+  "budget": 24,
+  "transitions": [
+    "persistent",
+    "fixed",
+    "new",
+    "replacement",
+    "drift"
+  ],
+  "total_cases": 15,
+  "exact_status_count_rate": 0.0,
+  "rows": [
+    {
+      "seed": 100,
+      "transition": "persistent",
+      "counts": {
+        "FIXED": 0,
+        "PERSISTENT": 8,
+        "NEW": 0
+      },
+      "expected_transition": {
+        "FIXED": 0,
+        "PERSISTENT": 1,
+        "NEW": 0
+      },
+      "exact": false,
+      "v1_validated": 5,
+      "v2_validated": 5,
+      "deltas": [
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.129 & feature_1 <= 2.441",
+          "condition_v2": "fault_feature > -1.129 & feature_1 <= 2.441"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.129 & feature_5 > -2.455",
+          "condition_v2": "fault_feature > -1.129 & feature_5 > -2.455"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.129 & feature_2 > -2.646",
+          "condition_v2": "fault_feature > -1.129 & feature_2 > -2.646"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_1 > 0.2123",
+          "condition_v2": "fault_feature > -1.129 & feature_1 > 0.2123"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_1 <= 2.441",
+          "condition_v2": "fault_feature > -1.129 & feature_1 <= 2.441"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_2 > -2.646",
+          "condition_v2": "fault_feature > -1.129 & feature_2 > -2.646"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_4 <= 2.568",
+          "condition_v2": "fault_feature > -1.129 & feature_4 <= 2.568"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_5 > -2.455",
+          "condition_v2": "fault_feature > -1.129 & feature_5 > -2.455"
+        }
+      ]
+    },
+    {
+      "seed": 100,
+      "transition": "fixed",
+      "counts": {
+        "FIXED": 5,
+        "PERSISTENT": 0,
+        "NEW": 0
+      },
+      "expected_transition": {
+        "FIXED": 1,
+        "PERSISTENT": 0,
+        "NEW": 0
+      },
+      "exact": false,
+      "v1_validated": 5,
+      "v2_validated": 0,
+      "deltas": [
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_1 > 0.2123",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_1 <= 2.441",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_2 > -2.646",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_4 <= 2.568",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_5 > -2.455",
+          "condition_v2": null
+        }
+      ]
+    },
+    {
+      "seed": 100,
+      "transition": "new",
+      "counts": {
+        "FIXED": 0,
+        "PERSISTENT": 0,
+        "NEW": 5
+      },
+      "expected_transition": {
+        "FIXED": 0,
+        "PERSISTENT": 0,
+        "NEW": 1
+      },
+      "exact": false,
+      "v1_validated": 0,
+      "v2_validated": 5,
+      "deltas": [
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.129 & feature_1 > 0.2123"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.129 & feature_1 <= 2.441"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.129 & feature_2 > -2.646"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.129 & feature_4 <= 2.568"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.129 & feature_5 > -2.455"
+        }
+      ]
+    },
+    {
+      "seed": 100,
+      "transition": "replacement",
+      "counts": {
+        "FIXED": 5,
+        "PERSISTENT": 0,
+        "NEW": 8
+      },
+      "expected_transition": {
+        "FIXED": 1,
+        "PERSISTENT": 0,
+        "NEW": 1
+      },
+      "exact": false,
+      "v1_validated": 5,
+      "v2_validated": 8,
+      "deltas": [
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.108 & feature_1 > -1.593"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.108 & feature_1 <= 2.441"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.108 & feature_2 > -2.99"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.108 & feature_2 > -2.646"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.108 & feature_3 > -0.7717"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.108 & feature_4 <= 2.568"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.108 & feature_5 > -2.773"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.108 & feature_5 <= -0.9073"
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_1 > 0.2123",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_1 <= 2.441",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_2 > -2.646",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_4 <= 2.568",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_5 > -2.455",
+          "condition_v2": null
+        }
+      ]
+    },
+    {
+      "seed": 100,
+      "transition": "drift",
+      "counts": {
+        "FIXED": 0,
+        "PERSISTENT": 5,
+        "NEW": 5
+      },
+      "expected_transition": {
+        "FIXED": 0,
+        "PERSISTENT": 1,
+        "NEW": 0
+      },
+      "exact": false,
+      "v1_validated": 5,
+      "v2_validated": 12,
+      "deltas": [
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > 1.108 & feature_2 > -2.99"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > 1.108 & feature_2 > -2.646"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > 1.108 & feature_3 > -0.7717"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > 1.108 & feature_4 <= 3"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > 1.108 & feature_5 > -2.773"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_1 > 0.2123",
+          "condition_v2": "fault_feature > 1.108 & feature_1 > -1.593"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.129 & feature_5 > -2.455",
+          "condition_v2": "fault_feature > 1.108 & feature_5 > -2.455"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.129 & feature_5 > -2.455",
+          "condition_v2": "fault_feature > -1.129 & feature_5 > -2.455"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.129 & feature_2 > -2.646",
+          "condition_v2": "fault_feature > -1.129 & feature_2 > -2.646"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.129 & feature_1 <= 2.441",
+          "condition_v2": "fault_feature > -1.129 & feature_1 <= 2.441"
+        }
+      ]
+    },
+    {
+      "seed": 101,
+      "transition": "persistent",
+      "counts": {
+        "FIXED": 0,
+        "PERSISTENT": 9,
+        "NEW": 0
+      },
+      "expected_transition": {
+        "FIXED": 0,
+        "PERSISTENT": 1,
+        "NEW": 0
+      },
+      "exact": false,
+      "v1_validated": 5,
+      "v2_validated": 5,
+      "deltas": [
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.171 & feature_5 > -1.748",
+          "condition_v2": "fault_feature > -1.171 & feature_5 > -1.748"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.171 & feature_2 <= 1.861",
+          "condition_v2": "fault_feature > -1.171 & feature_2 <= 1.861"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.171 & feature_4 <= 1.882",
+          "condition_v2": "fault_feature > -1.171 & feature_4 <= 1.882"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.171 & feature_3 > -0.5317",
+          "condition_v2": "fault_feature > -1.171 & feature_3 > -0.5317"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_1 <= 2.123",
+          "condition_v2": "fault_feature > -1.171 & feature_1 <= 2.123"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_2 <= 1.861",
+          "condition_v2": "fault_feature > -1.171 & feature_2 <= 1.861"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_3 > -0.5317",
+          "condition_v2": "fault_feature > -1.171 & feature_3 > -0.5317"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_4 <= 1.882",
+          "condition_v2": "fault_feature > -1.171 & feature_4 <= 1.882"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_5 > -1.748",
+          "condition_v2": "fault_feature > -1.171 & feature_5 > -1.748"
+        }
+      ]
+    },
+    {
+      "seed": 101,
+      "transition": "fixed",
+      "counts": {
+        "FIXED": 5,
+        "PERSISTENT": 0,
+        "NEW": 0
+      },
+      "expected_transition": {
+        "FIXED": 1,
+        "PERSISTENT": 0,
+        "NEW": 0
+      },
+      "exact": false,
+      "v1_validated": 5,
+      "v2_validated": 0,
+      "deltas": [
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_1 <= 2.123",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_2 <= 1.861",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_3 > -0.5317",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_4 <= 1.882",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_5 > -1.748",
+          "condition_v2": null
+        }
+      ]
+    },
+    {
+      "seed": 101,
+      "transition": "new",
+      "counts": {
+        "FIXED": 0,
+        "PERSISTENT": 0,
+        "NEW": 5
+      },
+      "expected_transition": {
+        "FIXED": 0,
+        "PERSISTENT": 0,
+        "NEW": 1
+      },
+      "exact": false,
+      "v1_validated": 0,
+      "v2_validated": 5,
+      "deltas": [
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.171 & feature_1 <= 2.123"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.171 & feature_2 <= 1.861"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.171 & feature_3 > -0.5317"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.171 & feature_4 <= 1.882"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.171 & feature_5 > -1.748"
+        }
+      ]
+    },
+    {
+      "seed": 101,
+      "transition": "replacement",
+      "counts": {
+        "FIXED": 5,
+        "PERSISTENT": 0,
+        "NEW": 7
+      },
+      "expected_transition": {
+        "FIXED": 1,
+        "PERSISTENT": 0,
+        "NEW": 1
+      },
+      "exact": false,
+      "v1_validated": 5,
+      "v2_validated": 7,
+      "deltas": [
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.207 & feature_1 > -1.846"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.207 & feature_1 <= 2.123"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.834 & feature_2 > -1.894"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.207 & feature_2 > -1.894"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.207 & feature_3 <= 0.5416"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.207 & feature_4 <= 1.882"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.207 & feature_5 <= 1.687"
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_1 <= 2.123",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_2 <= 1.861",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_3 > -0.5317",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_4 <= 1.882",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_5 > -1.748",
+          "condition_v2": null
+        }
+      ]
+    },
+    {
+      "seed": 101,
+      "transition": "drift",
+      "counts": {
+        "FIXED": 1,
+        "PERSISTENT": 3,
+        "NEW": 1
+      },
+      "expected_transition": {
+        "FIXED": 0,
+        "PERSISTENT": 1,
+        "NEW": 0
+      },
+      "exact": false,
+      "v1_validated": 5,
+      "v2_validated": 5,
+      "deltas": [
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.171 & feature_3 <= 0.5416"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.171 & feature_4 <= 1.882",
+          "condition_v2": "fault_feature > -1.171 & feature_4 <= 1.882"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.171 & feature_2 <= 1.861",
+          "condition_v2": "fault_feature > -1.171 & feature_2 <= 1.861"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.171 & feature_3 > -0.5317",
+          "condition_v2": "fault_feature > -1.171 & feature_3 > -0.5317"
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.171 & feature_5 > -1.748",
+          "condition_v2": null
+        }
+      ]
+    },
+    {
+      "seed": 102,
+      "transition": "persistent",
+      "counts": {
+        "FIXED": 0,
+        "PERSISTENT": 5,
+        "NEW": 0
+      },
+      "expected_transition": {
+        "FIXED": 0,
+        "PERSISTENT": 1,
+        "NEW": 0
+      },
+      "exact": false,
+      "v1_validated": 3,
+      "v2_validated": 3,
+      "deltas": [
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.066 & feature_4 <= 0.7124",
+          "condition_v2": "fault_feature > -1.066 & feature_4 <= 0.7124"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.066 & feature_5 > -0.501",
+          "condition_v2": "fault_feature > -1.066 & feature_5 > -0.501"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.066 & feature_4 > -2.898",
+          "condition_v2": "fault_feature > -1.066 & feature_4 > -2.898"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.066 & feature_4 <= 0.7124",
+          "condition_v2": "fault_feature > -1.066 & feature_4 <= 0.7124"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.066 & feature_5 > -0.501",
+          "condition_v2": "fault_feature > -1.066 & feature_5 > -0.501"
+        }
+      ]
+    },
+    {
+      "seed": 102,
+      "transition": "fixed",
+      "counts": {
+        "FIXED": 3,
+        "PERSISTENT": 0,
+        "NEW": 0
+      },
+      "expected_transition": {
+        "FIXED": 1,
+        "PERSISTENT": 0,
+        "NEW": 0
+      },
+      "exact": false,
+      "v1_validated": 3,
+      "v2_validated": 0,
+      "deltas": [
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.066 & feature_4 > -2.898",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.066 & feature_4 <= 0.7124",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.066 & feature_5 > -0.501",
+          "condition_v2": null
+        }
+      ]
+    },
+    {
+      "seed": 102,
+      "transition": "new",
+      "counts": {
+        "FIXED": 0,
+        "PERSISTENT": 0,
+        "NEW": 3
+      },
+      "expected_transition": {
+        "FIXED": 0,
+        "PERSISTENT": 0,
+        "NEW": 1
+      },
+      "exact": false,
+      "v1_validated": 0,
+      "v2_validated": 3,
+      "deltas": [
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.066 & feature_4 > -2.898"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.066 & feature_4 <= 0.7124"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.066 & feature_5 > -0.501"
+        }
+      ]
+    },
+    {
+      "seed": 102,
+      "transition": "replacement",
+      "counts": {
+        "FIXED": 3,
+        "PERSISTENT": 0,
+        "NEW": 11
+      },
+      "expected_transition": {
+        "FIXED": 1,
+        "PERSISTENT": 0,
+        "NEW": 1
+      },
+      "exact": false,
+      "v1_validated": 3,
+      "v2_validated": 11,
+      "deltas": [
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= -1.066 & feature_1 <= 2.591"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.241 & feature_1 <= 1.955"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.241 & feature_2 <= 2.464"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.241 & feature_3 > 1.647"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.241 & feature_4 <= -0.9031"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= -1.066 & feature_4 <= -0.9031"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= -1.066 & feature_4 <= 0.7124"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.241 & feature_4 > -2.569"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= -1.066 & feature_5 > -0.8358"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.241 & feature_5 > -0.501"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature <= 1.241 & feature_5 <= 0.4396"
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.066 & feature_4 > -2.898",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.066 & feature_4 <= 0.7124",
+          "condition_v2": null
+        },
+        {
+          "status": "FIXED",
+          "match_type": "exact",
+          "condition_v1": "fault_feature > -1.066 & feature_5 > -0.501",
+          "condition_v2": null
+        }
+      ]
+    },
+    {
+      "seed": 102,
+      "transition": "drift",
+      "counts": {
+        "FIXED": 0,
+        "PERSISTENT": 2,
+        "NEW": 2
+      },
+      "expected_transition": {
+        "FIXED": 0,
+        "PERSISTENT": 1,
+        "NEW": 0
+      },
+      "exact": false,
+      "v1_validated": 3,
+      "v2_validated": 5,
+      "deltas": [
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.066 & feature_3 <= 2.582"
+        },
+        {
+          "status": "NEW",
+          "match_type": "exact",
+          "condition_v1": null,
+          "condition_v2": "fault_feature > -1.066 & feature_4 > -2.569"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.066 & feature_5 > -0.501",
+          "condition_v2": "fault_feature > -1.066 & feature_5 > -0.501"
+        },
+        {
+          "status": "PERSISTENT",
+          "match_type": "cluster_overlap",
+          "condition_v1": "fault_feature > -1.066 & feature_4 <= 0.7124",
+          "condition_v2": "fault_feature > -1.066 & feature_4 > -2.898"
+        }
+      ]
+    }
+  ],
+  "interpretation": "End-to-end benchmark runs actual black-box model wrappers through the real ModelXray investigation engine before cluster-aware regression. Exact status counts can be affected by unrelated real failures; this benchmark is a controlled validation, not a guarantee about arbitrary production models."
+}

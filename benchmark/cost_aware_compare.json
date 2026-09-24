@@ -1,0 +1,747 @@
+{
+  "config": {
+    "seeds": 5,
+    "budget": 24,
+    "out": "benchmark/cost_aware_compare.json"
+  },
+  "summary": {
+    "baseline": {
+      "S1_main_effect": {
+        "discovery_rate": 0.8,
+        "mean_f1": 0.7787359356727737,
+        "mean_predict_calls": 74.0,
+        "mean_runtime_s": 0.4579608060003011,
+        "mean_promoted": 16.2
+      },
+      "S2_interaction": {
+        "discovery_rate": 0.6,
+        "mean_f1": 0.655421148235227,
+        "mean_predict_calls": 74.0,
+        "mean_runtime_s": 0.45136049860047933,
+        "mean_promoted": 10.6
+      },
+      "S3_boundary_instability": {
+        "discovery_rate": 1.0,
+        "mean_f1": 0.8527005424486646,
+        "mean_predict_calls": 74.0,
+        "mean_runtime_s": 0.5030019488001927,
+        "mean_promoted": 13.0
+      },
+      "S4_covariate_shift": {
+        "discovery_rate": 1.0,
+        "mean_f1": 0.8954124697213368,
+        "mean_predict_calls": 74.0,
+        "mean_runtime_s": 0.4334235293999882,
+        "mean_promoted": 17.4
+      },
+      "S5_noisy_feature": {
+        "discovery_rate": 0.8,
+        "mean_f1": 0.6607794600666219,
+        "mean_predict_calls": 69.2,
+        "mean_runtime_s": 0.45647930600007386,
+        "mean_promoted": 12.4
+      },
+      "S6_correlated_features": {
+        "discovery_rate": 0.8,
+        "mean_f1": 0.8471330549171754,
+        "mean_predict_calls": 69.2,
+        "mean_runtime_s": 0.4351700952000101,
+        "mean_promoted": 17.4
+      },
+      "S7_class_imbalance": {
+        "discovery_rate": 0.6,
+        "mean_f1": 0.48789719301555856,
+        "mean_predict_calls": 67.2,
+        "mean_runtime_s": 0.45176353940005354,
+        "mean_promoted": 7.8
+      }
+    },
+    "cost_aware": {
+      "S1_main_effect": {
+        "discovery_rate": 0.8,
+        "mean_f1": 0.7787359356727737,
+        "mean_predict_calls": 74.0,
+        "mean_runtime_s": 0.43160049340003753,
+        "mean_promoted": 15.8
+      },
+      "S2_interaction": {
+        "discovery_rate": 1.0,
+        "mean_f1": 0.900527466396208,
+        "mean_predict_calls": 74.0,
+        "mean_runtime_s": 0.4684693850000258,
+        "mean_promoted": 12.6
+      },
+      "S3_boundary_instability": {
+        "discovery_rate": 1.0,
+        "mean_f1": 0.8527005424486646,
+        "mean_predict_calls": 74.0,
+        "mean_runtime_s": 0.4878864287999022,
+        "mean_promoted": 12.0
+      },
+      "S4_covariate_shift": {
+        "discovery_rate": 1.0,
+        "mean_f1": 0.9144428879722873,
+        "mean_predict_calls": 74.0,
+        "mean_runtime_s": 0.44211366520012235,
+        "mean_promoted": 16.4
+      },
+      "S5_noisy_feature": {
+        "discovery_rate": 0.8,
+        "mean_f1": 0.7259252351476367,
+        "mean_predict_calls": 74.0,
+        "mean_runtime_s": 0.4508110688002489,
+        "mean_promoted": 15.2
+      },
+      "S6_correlated_features": {
+        "discovery_rate": 0.8,
+        "mean_f1": 0.8471330549171754,
+        "mean_predict_calls": 64.4,
+        "mean_runtime_s": 0.43865273339979466,
+        "mean_promoted": 15.6
+      },
+      "S7_class_imbalance": {
+        "discovery_rate": 0.6,
+        "mean_f1": 0.48789719301555856,
+        "mean_predict_calls": 75.4,
+        "mean_runtime_s": 0.45667073959975824,
+        "mean_promoted": 11.6
+      }
+    }
+  },
+  "rows": {
+    "baseline": [
+      {
+        "scenario": "S1_main_effect",
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.5617977528089887,
+        "predict_calls": 74,
+        "runtime_s": 0.5021872879997318,
+        "promoted": 6
+      },
+      {
+        "scenario": "S1_main_effect",
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.96415770609319,
+        "predict_calls": 74,
+        "runtime_s": 0.45563671000036265,
+        "promoted": 14
+      },
+      {
+        "scenario": "S1_main_effect",
+        "seed": 102,
+        "discovered": true,
+        "f1": 0.9868667917448405,
+        "predict_calls": 74,
+        "runtime_s": 0.40496517200062954,
+        "promoted": 20
+      },
+      {
+        "scenario": "S1_main_effect",
+        "seed": 103,
+        "discovered": true,
+        "f1": 1.0,
+        "predict_calls": 74,
+        "runtime_s": 0.4487152720002996,
+        "promoted": 21
+      },
+      {
+        "scenario": "S1_main_effect",
+        "seed": 104,
+        "discovered": false,
+        "f1": 0.38085742771684944,
+        "predict_calls": 74,
+        "runtime_s": 0.4782995880004819,
+        "promoted": 20
+      },
+      {
+        "scenario": "S2_interaction",
+        "seed": 100,
+        "discovered": false,
+        "f1": 0.25035161744022505,
+        "predict_calls": 74,
+        "runtime_s": 0.503302753000753,
+        "promoted": 4
+      },
+      {
+        "scenario": "S2_interaction",
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.9350649350649352,
+        "predict_calls": 74,
+        "runtime_s": 0.4350980000008349,
+        "promoted": 15
+      },
+      {
+        "scenario": "S2_interaction",
+        "seed": 102,
+        "discovered": false,
+        "f1": 0.2544529262086514,
+        "predict_calls": 74,
+        "runtime_s": 0.47754329100007453,
+        "promoted": 4
+      },
+      {
+        "scenario": "S2_interaction",
+        "seed": 103,
+        "discovered": true,
+        "f1": 0.8898678414096917,
+        "predict_calls": 74,
+        "runtime_s": 0.4227871060002144,
+        "promoted": 16
+      },
+      {
+        "scenario": "S2_interaction",
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.9473684210526316,
+        "predict_calls": 74,
+        "runtime_s": 0.41807134300051985,
+        "promoted": 14
+      },
+      {
+        "scenario": "S3_boundary_instability",
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.8412698412698412,
+        "predict_calls": 74,
+        "runtime_s": 0.47855285000059666,
+        "promoted": 8
+      },
+      {
+        "scenario": "S3_boundary_instability",
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.9585253456221198,
+        "predict_calls": 74,
+        "runtime_s": 0.501851567999438,
+        "promoted": 8
+      },
+      {
+        "scenario": "S3_boundary_instability",
+        "seed": 102,
+        "discovered": true,
+        "f1": 0.787878787878788,
+        "predict_calls": 74,
+        "runtime_s": 0.5357879909997791,
+        "promoted": 18
+      },
+      {
+        "scenario": "S3_boundary_instability",
+        "seed": 103,
+        "discovered": true,
+        "f1": 0.9680365296803655,
+        "predict_calls": 74,
+        "runtime_s": 0.49824319000072137,
+        "promoted": 16
+      },
+      {
+        "scenario": "S3_boundary_instability",
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.7077922077922079,
+        "predict_calls": 74,
+        "runtime_s": 0.500574145000428,
+        "promoted": 15
+      },
+      {
+        "scenario": "S4_covariate_shift",
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.8932806324110671,
+        "predict_calls": 74,
+        "runtime_s": 0.45175551700049255,
+        "promoted": 20
+      },
+      {
+        "scenario": "S4_covariate_shift",
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.9079497907949791,
+        "predict_calls": 74,
+        "runtime_s": 0.41247482000017044,
+        "promoted": 19
+      },
+      {
+        "scenario": "S4_covariate_shift",
+        "seed": 102,
+        "discovered": true,
+        "f1": 0.9366602687140114,
+        "predict_calls": 74,
+        "runtime_s": 0.3972072019996631,
+        "promoted": 20
+      },
+      {
+        "scenario": "S4_covariate_shift",
+        "seed": 103,
+        "discovered": true,
+        "f1": 0.825,
+        "predict_calls": 74,
+        "runtime_s": 0.47104841399959696,
+        "promoted": 9
+      },
+      {
+        "scenario": "S4_covariate_shift",
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.9141716566866267,
+        "predict_calls": 74,
+        "runtime_s": 0.4346316940000179,
+        "promoted": 19
+      },
+      {
+        "scenario": "S5_noisy_feature",
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.5074925074925074,
+        "predict_calls": 74,
+        "runtime_s": 0.4623095410006499,
+        "promoted": 11
+      },
+      {
+        "scenario": "S5_noisy_feature",
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.6219151036525172,
+        "predict_calls": 74,
+        "runtime_s": 0.4835648040007072,
+        "promoted": 12
+      },
+      {
+        "scenario": "S5_noisy_feature",
+        "seed": 102,
+        "discovered": false,
+        "f1": 0.27125119388729707,
+        "predict_calls": 50,
+        "runtime_s": 0.4230528359994423,
+        "promoted": 2
+      },
+      {
+        "scenario": "S5_noisy_feature",
+        "seed": 103,
+        "discovered": true,
+        "f1": 0.914616497829233,
+        "predict_calls": 74,
+        "runtime_s": 0.4718168150002384,
+        "promoted": 18
+      },
+      {
+        "scenario": "S5_noisy_feature",
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.988621997471555,
+        "predict_calls": 74,
+        "runtime_s": 0.44165253399933135,
+        "promoted": 19
+      },
+      {
+        "scenario": "S6_correlated_features",
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.9267399267399267,
+        "predict_calls": 74,
+        "runtime_s": 0.47139181599959556,
+        "promoted": 6
+      },
+      {
+        "scenario": "S6_correlated_features",
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.9716312056737589,
+        "predict_calls": 74,
+        "runtime_s": 0.42572115999973903,
+        "promoted": 18
+      },
+      {
+        "scenario": "S6_correlated_features",
+        "seed": 102,
+        "discovered": true,
+        "f1": 0.9868667917448405,
+        "predict_calls": 74,
+        "runtime_s": 0.4133765289998337,
+        "promoted": 21
+      },
+      {
+        "scenario": "S6_correlated_features",
+        "seed": 103,
+        "discovered": true,
+        "f1": 1.0,
+        "predict_calls": 50,
+        "runtime_s": 0.38770001200009574,
+        "promoted": 22
+      },
+      {
+        "scenario": "S6_correlated_features",
+        "seed": 104,
+        "discovered": false,
+        "f1": 0.3504273504273504,
+        "predict_calls": 74,
+        "runtime_s": 0.47766095900078653,
+        "promoted": 20
+      },
+      {
+        "scenario": "S7_class_imbalance",
+        "seed": 100,
+        "discovered": false,
+        "f1": 0.37991858887381275,
+        "predict_calls": 64,
+        "runtime_s": 0.45747708800081455,
+        "promoted": 10
+      },
+      {
+        "scenario": "S7_class_imbalance",
+        "seed": 101,
+        "discovered": false,
+        "f1": 0.319634703196347,
+        "predict_calls": 74,
+        "runtime_s": 0.4856831600000078,
+        "promoted": 9
+      },
+      {
+        "scenario": "S7_class_imbalance",
+        "seed": 102,
+        "discovered": true,
+        "f1": 0.6396396396396397,
+        "predict_calls": 50,
+        "runtime_s": 0.44211710000035964,
+        "promoted": 5
+      },
+      {
+        "scenario": "S7_class_imbalance",
+        "seed": 103,
+        "discovered": true,
+        "f1": 0.5369127516778524,
+        "predict_calls": 74,
+        "runtime_s": 0.41669157299929793,
+        "promoted": 7
+      },
+      {
+        "scenario": "S7_class_imbalance",
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.5633802816901409,
+        "predict_calls": 74,
+        "runtime_s": 0.4568487759997879,
+        "promoted": 8
+      }
+    ],
+    "cost_aware": [
+      {
+        "scenario": "S1_main_effect",
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.5617977528089887,
+        "predict_calls": 74,
+        "runtime_s": 0.42404329300006793,
+        "promoted": 9
+      },
+      {
+        "scenario": "S1_main_effect",
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.96415770609319,
+        "predict_calls": 74,
+        "runtime_s": 0.4170526449997851,
+        "promoted": 14
+      },
+      {
+        "scenario": "S1_main_effect",
+        "seed": 102,
+        "discovered": true,
+        "f1": 0.9868667917448405,
+        "predict_calls": 74,
+        "runtime_s": 0.4217312730006597,
+        "promoted": 18
+      },
+      {
+        "scenario": "S1_main_effect",
+        "seed": 103,
+        "discovered": true,
+        "f1": 1.0,
+        "predict_calls": 74,
+        "runtime_s": 0.45937553299972933,
+        "promoted": 20
+      },
+      {
+        "scenario": "S1_main_effect",
+        "seed": 104,
+        "discovered": false,
+        "f1": 0.38085742771684944,
+        "predict_calls": 74,
+        "runtime_s": 0.4357997229999455,
+        "promoted": 18
+      },
+      {
+        "scenario": "S2_interaction",
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.89,
+        "predict_calls": 74,
+        "runtime_s": 0.4825742570001239,
+        "promoted": 11
+      },
+      {
+        "scenario": "S2_interaction",
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.9350649350649352,
+        "predict_calls": 74,
+        "runtime_s": 0.460175258000163,
+        "promoted": 17
+      },
+      {
+        "scenario": "S2_interaction",
+        "seed": 102,
+        "discovered": true,
+        "f1": 0.8403361344537814,
+        "predict_calls": 74,
+        "runtime_s": 0.48188364199995704,
+        "promoted": 5
+      },
+      {
+        "scenario": "S2_interaction",
+        "seed": 103,
+        "discovered": true,
+        "f1": 0.8898678414096917,
+        "predict_calls": 74,
+        "runtime_s": 0.4749543010002526,
+        "promoted": 17
+      },
+      {
+        "scenario": "S2_interaction",
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.9473684210526316,
+        "predict_calls": 74,
+        "runtime_s": 0.4427594669996324,
+        "promoted": 13
+      },
+      {
+        "scenario": "S3_boundary_instability",
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.8412698412698412,
+        "predict_calls": 74,
+        "runtime_s": 0.5156704310002169,
+        "promoted": 9
+      },
+      {
+        "scenario": "S3_boundary_instability",
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.9585253456221198,
+        "predict_calls": 74,
+        "runtime_s": 0.47002126400002453,
+        "promoted": 8
+      },
+      {
+        "scenario": "S3_boundary_instability",
+        "seed": 102,
+        "discovered": true,
+        "f1": 0.787878787878788,
+        "predict_calls": 74,
+        "runtime_s": 0.4833646039996893,
+        "promoted": 16
+      },
+      {
+        "scenario": "S3_boundary_instability",
+        "seed": 103,
+        "discovered": true,
+        "f1": 0.9680365296803655,
+        "predict_calls": 74,
+        "runtime_s": 0.4865514279999843,
+        "promoted": 14
+      },
+      {
+        "scenario": "S3_boundary_instability",
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.7077922077922079,
+        "predict_calls": 74,
+        "runtime_s": 0.483824416999596,
+        "promoted": 13
+      },
+      {
+        "scenario": "S4_covariate_shift",
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.8932806324110671,
+        "predict_calls": 74,
+        "runtime_s": 0.44439614500061,
+        "promoted": 18
+      },
+      {
+        "scenario": "S4_covariate_shift",
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.9079497907949791,
+        "predict_calls": 74,
+        "runtime_s": 0.4450388680006654,
+        "promoted": 17
+      },
+      {
+        "scenario": "S4_covariate_shift",
+        "seed": 102,
+        "discovered": true,
+        "f1": 0.9366602687140114,
+        "predict_calls": 74,
+        "runtime_s": 0.4281171650000033,
+        "promoted": 19
+      },
+      {
+        "scenario": "S4_covariate_shift",
+        "seed": 103,
+        "discovered": true,
+        "f1": 0.9201520912547528,
+        "predict_calls": 74,
+        "runtime_s": 0.45075545700001385,
+        "promoted": 10
+      },
+      {
+        "scenario": "S4_covariate_shift",
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.9141716566866267,
+        "predict_calls": 74,
+        "runtime_s": 0.4422606909993192,
+        "promoted": 18
+      },
+      {
+        "scenario": "S5_noisy_feature",
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.5074925074925074,
+        "predict_calls": 74,
+        "runtime_s": 0.4573826910000207,
+        "promoted": 16
+      },
+      {
+        "scenario": "S5_noisy_feature",
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.9476439790575916,
+        "predict_calls": 74,
+        "runtime_s": 0.4563038410005902,
+        "promoted": 15
+      },
+      {
+        "scenario": "S5_noisy_feature",
+        "seed": 102,
+        "discovered": false,
+        "f1": 0.27125119388729707,
+        "predict_calls": 74,
+        "runtime_s": 0.41729399700034264,
+        "promoted": 11
+      },
+      {
+        "scenario": "S5_noisy_feature",
+        "seed": 103,
+        "discovered": true,
+        "f1": 0.914616497829233,
+        "predict_calls": 74,
+        "runtime_s": 0.4625393400001485,
+        "promoted": 17
+      },
+      {
+        "scenario": "S5_noisy_feature",
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.988621997471555,
+        "predict_calls": 74,
+        "runtime_s": 0.46053547500014247,
+        "promoted": 17
+      },
+      {
+        "scenario": "S6_correlated_features",
+        "seed": 100,
+        "discovered": true,
+        "f1": 0.9267399267399267,
+        "predict_calls": 74,
+        "runtime_s": 0.451184894999642,
+        "promoted": 6
+      },
+      {
+        "scenario": "S6_correlated_features",
+        "seed": 101,
+        "discovered": true,
+        "f1": 0.9716312056737589,
+        "predict_calls": 74,
+        "runtime_s": 0.4457384799998181,
+        "promoted": 17
+      },
+      {
+        "scenario": "S6_correlated_features",
+        "seed": 102,
+        "discovered": true,
+        "f1": 0.9868667917448405,
+        "predict_calls": 50,
+        "runtime_s": 0.4241572119999546,
+        "promoted": 18
+      },
+      {
+        "scenario": "S6_correlated_features",
+        "seed": 103,
+        "discovered": true,
+        "f1": 1.0,
+        "predict_calls": 50,
+        "runtime_s": 0.3935725800001819,
+        "promoted": 20
+      },
+      {
+        "scenario": "S6_correlated_features",
+        "seed": 104,
+        "discovered": false,
+        "f1": 0.3504273504273504,
+        "predict_calls": 74,
+        "runtime_s": 0.47861049999937677,
+        "promoted": 17
+      },
+      {
+        "scenario": "S7_class_imbalance",
+        "seed": 100,
+        "discovered": false,
+        "f1": 0.37991858887381275,
+        "predict_calls": 81,
+        "runtime_s": 0.4615778739998859,
+        "promoted": 13
+      },
+      {
+        "scenario": "S7_class_imbalance",
+        "seed": 101,
+        "discovered": false,
+        "f1": 0.319634703196347,
+        "predict_calls": 74,
+        "runtime_s": 0.4857938639997883,
+        "promoted": 10
+      },
+      {
+        "scenario": "S7_class_imbalance",
+        "seed": 102,
+        "discovered": true,
+        "f1": 0.6396396396396397,
+        "predict_calls": 74,
+        "runtime_s": 0.4647409119997974,
+        "promoted": 9
+      },
+      {
+        "scenario": "S7_class_imbalance",
+        "seed": 103,
+        "discovered": true,
+        "f1": 0.5369127516778524,
+        "predict_calls": 74,
+        "runtime_s": 0.4202520849994471,
+        "promoted": 13
+      },
+      {
+        "scenario": "S7_class_imbalance",
+        "seed": 104,
+        "discovered": true,
+        "f1": 0.5633802816901409,
+        "predict_calls": 74,
+        "runtime_s": 0.45098896299987246,
+        "promoted": 13
+      }
+    ]
+  }
+}

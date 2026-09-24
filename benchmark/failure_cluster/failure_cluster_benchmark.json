@@ -1,0 +1,377 @@
+{
+  "seeds": 30,
+  "mean_clusters": 3.0,
+  "mean_pair_precision": 1.0,
+  "mean_pair_recall": 1.0,
+  "adversarial_ambiguous": {
+    "mean_clusters": 1.0,
+    "mean_pair_precision": 0.3333333333333334,
+    "mean_pair_recall": 1.0,
+    "interpretation": "Expected ambiguity: geometric overlap alone cannot distinguish different causal mechanisms when regions overlap strongly."
+  },
+  "rows": [
+    {
+      "seed": 100,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 101,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 102,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 103,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 104,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 105,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 106,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 107,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 108,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 109,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 110,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 111,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 112,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 113,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 114,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 115,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 116,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 117,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 118,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 119,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 120,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 121,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 122,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 123,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 124,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 125,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 126,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 127,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 128,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "seed": 129,
+      "clusters": 3,
+      "precision": 1.0,
+      "recall": 1.0
+    }
+  ],
+  "ambiguous_rows": [
+    {
+      "seed": 100,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 101,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 102,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 103,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 104,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 105,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 106,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 107,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 108,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 109,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 110,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 111,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 112,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 113,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 114,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 115,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 116,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 117,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 118,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 119,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 120,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 121,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 122,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 123,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 124,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 125,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 126,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 127,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 128,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    },
+    {
+      "seed": 129,
+      "clusters": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0
+    }
+  ],
+  "interpretation": "Pairwise clustering agreement against seeded mechanism IDs; not a causal claim."
+}
