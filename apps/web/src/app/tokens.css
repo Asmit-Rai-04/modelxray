@@ -1,0 +1,60 @@
+/* ModelXray · Ink / Olive. Shared semantic tokens, independent of layout. */
+:root {
+  color-scheme: dark;
+  --bg: #0d0e0c;
+  --bg2: #151813;
+  --panel: #151813;
+  --panel2: #191d17;
+  --panel3: #232820;
+  --line: #32372c;
+  --line2: #32372c;
+  --control-border: #717a66;
+  --text: #eeefe9;
+  --muted: #b5baae;
+  --faint: #919a88;
+  --accent: #a8b78b;
+  --accent-hover: #b9c9a0;
+  --accent-deep: #52644c;
+  --accent-bg: #242d20;
+  --accent2: var(--accent);
+  --accent3: var(--accent);
+  --red: #d78c84;
+  --amber: #d7b57b;
+  --green: var(--accent);
+  --info: #94adbe;
+  --on-accent: #0d0e0c;
+  --shadow: none;
+  --sans: var(--font-geist), "Segoe UI", system-ui, sans-serif;
+  --mono: var(--font-plex), Consolas, monospace;
+  --display: var(--sans);
+  --radius: 8px;
+  --motion: 160ms;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f5f4ef;
+  --bg2: #ffffff;
+  --panel: #ffffff;
+  --panel2: #ecede6;
+  --panel3: #e2e6da;
+  --line: #d6dacf;
+  --line2: #d6dacf;
+  --control-border: #7b8772;
+  --text: #1b2119;
+  --muted: #515c4e;
+  --faint: #65715f;
+  --accent: #526b3f;
+  --accent-hover: #415532;
+  --accent-deep: #52644c;
+  --accent-bg: #e4ebdd;
+  --red: #9c463e;
+  --amber: #806020;
+  --info: #406880;
+  --on-accent: #ffffff;
+}

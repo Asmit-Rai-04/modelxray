@@ -1,115 +1,64 @@
-# Frontend delivery and verification
+# Ink / Olive review and verification
 
-Implemented in the `modelxray-main` clone on `feat/premium-investigation-workspace`, based on GitHub main commit `830e6ba`. The unpacked release and the existing servers on ports 3000/8000 are preserved. Changes have not been pushed or merged. No backend source or statistical logic changed.
+Working branch: `feat/ink-olive-design-system`. The latest working frontend is preserved in local checkpoint `a1db417` on `feat/premium-investigation-workspace`. No backend statistical code was modified. No branch was pushed or merged into main.
 
-## Improvements
+## Changes for review
 
-The enhancement pass adds an interactive protocol guide, a compact initial ledger, direct chart → Atlas → source-experiment navigation, searchable and sortable experiment outcomes, all-transition regression filtering, complete candidate-feature lists and unexecuted feature breadth. Long plots can expand from a compact 12-entry view; every returned value remains in the accessible table. Diagram scrolling is keyboard accessible and keeps the selected protocol stage visible on mobile. Headers and explanatory captions remain fixed while only the drawing scrolls.
+Created `src/app/tokens.css` with the complete dark Ink / Olive and light Stone / Olive palettes, stronger interactive borders and semantic status colors. Consolidated layout, component and responsive styles into `globals.css`; removed `instrument.css`. Removed the serif heading system, lavender colors, decorative grid and glow. Self-hosted Geist Variable and IBM Plex Mono through pinned development font assets.
 
-- Documented aubergine/mineral-green and porcelain/olive themes, readable typography, compact workspace rail, responsive analytical layouts and visible focus states.
-- Separate upload and benchmark entry points; repeat investigations without refresh; stable form and navigation names; explicit target/metric controls for regression.
-- Real health checks, async jobs, server-reported progress, cooperative cancellation, reload recovery and previous-run navigation.
-- Atlas search, severity filtering and sorting; region, experiment and regression plots backed by API values; chart labels, units, legends and accessible tables.
-- One shared coordinate table for evidence topology, with boundary and regression branches routed around labels. Workflow paths are explicitly qualitative.
-- Model/dataset identifiers persist per API address. Comparability warnings are visible. Missing strategy breadth is labeled unavailable instead of defaulting to one.
-- Extracted workspaces, setup, shared controls, lifecycle, charts, API types and formatting from the old monolithic page.
+Refined the compact workspace shell, continuous metrics, upload surfaces, table hierarchy, selection states and chart marks. Preserved the wordmark, five workspaces and saved investigation context. Atlas now exposes selected state with `aria-pressed`. Diagram nodes remain neutral until actual results are available; selecting a protocol step does not imply completion. Confidence interval and screened/validated chart marks have distinct legends and keyboard-accessible scroll regions.
 
-## Executed verification
+Added a shared error-message translator for network failures without hiding backend validation messages. History and job recovery retain their existing retry controls and identifiers. Progress and terminal status continue to come from the API. Coverage bar fills reflect actual execution ratios.
 
-| Check | Actual result |
-| --- | --- |
-| TypeScript | `npm run typecheck` passed |
-| Production build | `npm run build` passed; route first-load JavaScript approximately 120 kB after enhancement |
-| Frontend / browser interactions | 19 Playwright tests passed, including the protocol guide, cross-workspace evidence links, hypothesis filters, plot expansion, feature blind spots, transition filters and both-theme accessibility |
-| Live API end-to-end | 2 Playwright tests passed; repeated successfully with a second uploaded investigation without refresh and previous-run selection assertions |
-| Full browser suite | Final enhanced suite: 21 tests passed in approximately 1.5 minutes, including both live API paths |
-| Backend tests | 70 passed, 3 existing sklearn feature-name warnings |
-| Dependency security | `npm audit`: 0 vulnerabilities |
-| Whitespace | `git diff --check` passed |
-| Accessibility | axe WCAG A/AA checks reported no violations in both themes across all five workspaces and setup |
-| SVG alignment | Every edge endpoint coincided with its node center at 390, 768 and 1440px widths and 100%, 150%, 200% CSS zoom |
-| Responsive containment | All five workspaces checked at 390, 768 and 1440px; no page-level horizontal overflow. Diagrams and analytical tables scroll locally |
-| Hydration / console | Theme initialization and persistence checked; live benchmark flow reported no browser console errors, hydration errors or React key warnings; real upload flow reported no page errors |
-| Visual inspection | Reviewed desktop landing, both-theme analytical screenshots, mobile setup and mobile Atlas; corrected branch/label overlaps and incomplete-grid filler cells |
-
-Test evidence is generated by the unmodified backend. The standard benchmark generated five validated regions and 24 executed experiments. Uploaded-path tests use actual trained sklearn/joblib models and labeled CSVs, registered and investigated through the real backend. Mocked interaction tests use the backend-generated analytics fixture; job and error scenarios are explicit protocol simulations, not product data.
-
-Initial failures were investigated and fixed: SVG title hydration, unstable file/select/navigation accessible names and an ambiguous history locator. The initial backend test invocation encountered Windows temp-directory permissions; the successful run used a fresh workspace-local pytest directory.
-
-Enhancement verification also caught missing keyboard access on the landing diagram and an SVG viewport-width issue in the mobile stage-scrolling calculation. Both were corrected and covered by tests. An intermediate browser run timed out during interaction; the unchanged workspace scans passed on retry, and the final complete suite passed. The 70-test backend run belongs to the initial implementation pass; backend source remains unchanged in this enhancement pass.
-
-## Security changes
-
-Next.js `15.5.4 → 15.5.27`; React and React DOM `19.1.1 → 19.1.9`. The patched release line is retained. Explicit overrides use PostCSS `8.5.30`, sharp `0.35.5`, and source-map-js `1.2.2` to remove the remaining transitive advisories. The overridden tree was installed, audited, built and tested; no forced major update was applied. Playwright and axe are development dependencies; no new production library was added.
-
-## Backend limitations and unverified checks
-
-- Uploaded-job progress is coarse worker progress; the API does not stream per-experiment progress. The frontend does not interpolate it.
-- Cancellation is cooperative. Frontend request/state handling and backend cancellation tests passed; arbitrary long-running user models may take time to reach a checkpoint.
-- Regression endpoints are synchronous, with no progress/cancellation or saved-comparison retrieval API. Comparison results do not recover after reload; model investigations and artifact identifiers do.
-- History shows up to 100 backend-saved investigations. Artifact metadata is remembered locally because no asset-list API exists. Deleted server assets are surfaced as backend errors.
-- Chromium was exercised. Firefox, Safari, manual screen-reader use, touch hardware, native browser zoom beyond the checked coordinate scaling, and assistive-technology certification remain unverified.
-- Real uploaded flow was tested with generated sklearn artifacts, not the user's private models. Production deployment/load testing and server-restart recovery were not exercised end-to-end. Interrupted-job handling was inspected in the backend but not separately verified by a restart test.
-- Automated accessibility scans are not a full WCAG conformance certification.
-
-## Preview and reproduction
-
-The isolated preview is running at **http://localhost:59300**, using the same unmodified API source on port **8001** and its own ignored `apps/web/.preview-data` store. Existing servers remain untouched.
-
-For normal development, from `apps/web`: run `npm ci`, then `npm run dev -- -p 59300`. `NEXT_PUBLIC_API_URL` defaults to `http://localhost:8000`; set it before building to point at another API. `npm run start -- -p 59300` serves an existing production build.
-
-To reproduce the full test pipeline, install Python project dependencies, then from `apps/web` run:
+Modified files relative to the preserved checkpoint:
 
 ```text
-npm ci
-npx playwright install chromium
-npm test
-```
-
-The runner generates genuine backend fixtures, type-checks, builds with the isolated API URL, and runs Playwright. It uses ports 59300/8001 and `.test-artifacts`, so stop the isolated preview before running it. `npm run test:e2e` runs the same preparation plus only the live API suite. Test reports are under `playwright-report`; retained screenshots/evidence are under `.test-artifacts`.
-
-Backend verification command from repository root:
-
-```text
-python -m pytest -q --basetemp=apps/web/.test-artifacts/pytest-verification-01
-```
-
-Use a fresh basetemp directory when repeating this command.
-
-## Exact changed files
-
-```text
-.gitignore
 apps/web/DESIGN_SYSTEM.md
-apps/web/FRONTEND_AUDIT.md
 apps/web/VERIFICATION.md
 apps/web/package.json
 apps/web/package-lock.json
-apps/web/playwright.config.ts
+apps/web/src/app/tokens.css (new)
 apps/web/src/app/globals.css
-apps/web/src/app/instrument.css
+apps/web/src/app/instrument.css (removed)
 apps/web/src/app/layout.tsx
-apps/web/src/app/page.tsx
 apps/web/src/components/charts.tsx
-apps/web/src/components/experiments.tsx
 apps/web/src/components/failure-atlas.tsx
 apps/web/src/components/investigation-map.tsx
-apps/web/src/components/investigation-setup.tsx
 apps/web/src/components/landing.tsx
 apps/web/src/components/lifecycle.tsx
-apps/web/src/components/overview.tsx
-apps/web/src/components/regression.tsx
-apps/web/src/components/search-coverage.tsx
-apps/web/src/components/ui.tsx
 apps/web/src/components/workspace.tsx
 apps/web/src/hooks/use-investigation-job.ts
 apps/web/src/lib/api.ts
-apps/web/src/lib/format.ts
-apps/web/src/lib/types.ts
 apps/web/tests/live.spec.ts
-apps/web/tests/prepare_fixtures.py
-apps/web/tests/run-tests.mjs
 apps/web/tests/workspace.spec.ts
 ```
 
-See `FRONTEND_AUDIT.md` for the original audit and API contracts, and `DESIGN_SYSTEM.md` for component, theme and accessibility rules.
+## Preserved behavior
+
+Model and CSV uploads, target and metric selection, asynchronous investigations, explicitly labeled synthetic benchmark, history and Evidence Ledger, recovery after reload, cancellation, all five workspaces, evidence-to-region-to-source-experiment navigation, filters, actual effects and intervals, generated-candidate coverage, real and demo model comparisons, and persistent themes remain connected to the existing APIs. API contracts and the original audit are documented in `FRONTEND_AUDIT.md`.
+
+## Verification
+
+The frontend runner executes TypeScript checking, an optimized production build and Chromium component/interaction/end-to-end checks. Fixtures are generated by the unmodified backend, including two trained sklearn artifacts and a labeled CSV. Protocol-specific job mocks test state handling; production charts never use those mocks.
+
+The suite covers theme initialization/persistence, navigation, setup, loading, API errors, uploads, rejection messages, server progress, cancellation, recovery, previous-run selection, evidence visualizations, filters, regression, keyboard focus and reduced motion. Axe scans cover both themes, all five populated workspaces, setup, disconnected states and live uploaded regression. Responsive containment is checked at 390, 768, 1024, 1280 and 1440px. SVG endpoints are checked against shared node centers at each width and scale factors 1, 1.5 and 2.
+
+Screenshots are retained under `.test-artifacts`: landing/mobile, Overview, Atlas, Experiments, Coverage, populated Regression, setup, disconnected and uploaded-regression states in both themes. Review discovered and corrected label contrast, theme-transition blending, selected-region styling and coverage bar visibility.
+
+Backend verification: `python -m pytest -q --basetemp=apps/web/.test-artifacts/pytest-ink-olive-01` — **70 passed**, with three existing sklearn feature-name warnings. Dependency audit: `npm audit --audit-level=moderate` — **zero vulnerabilities**. No standalone lint configuration or script exists; the Next production build checks types and configured validation.
+
+Final frontend result: **22 passed** (20 component/interaction browser tests and two live API end-to-end tests). `npm test` passed the complete fixture-generation/type-check/build/test pipeline. The final mobile-label correction was followed by another successful production build and `npx playwright test` run: **22 passed in 1.5 minutes**. Both-theme axe scans reported zero violations in the tested states. Console/hydration checks passed. The final production first-load JavaScript is approximately 121 kB; no runtime chart or component library was added. `git diff --check` passed.
+
+## Practical limits
+
+Automated axe scans do not certify full WCAG conformance. Firefox, Safari, manual screen-reader use, touch hardware and production load/deployment remain unverified. CSS scaling checks verify coordinates, not native browser zoom with every assistive technology. Live uploads use generated sklearn models rather than private user artifacts. Server-restart recovery has not been tested end-to-end.
+
+Worker progress is coarse and never interpolated. Cancellation waits for a cooperative checkpoint. Regression APIs are synchronous and do not expose progress, cancellation or saved-comparison retrieval; comparison results do not survive reload. Investigations and locally remembered artifact identifiers do. History is limited to 100 returned runs. No asset-list endpoint exists; deleted assets surface real backend errors.
+
+## Run and reproduce
+
+From `apps/web`, run `npm ci`, then `npm run dev -- -p 59300`. The default API is `http://localhost:8000`; set `NEXT_PUBLIC_API_URL` before starting/building when using another service. `npm run start -- -p 59300` serves the production build.
+
+To reproduce verification, install Python project dependencies, run `npx playwright install chromium`, then `npm test` from `apps/web`. The runner uses isolated ports 59300/8001 and `.test-artifacts`; stop the isolated preview before running it. `npm run test:e2e` prepares fixtures and runs only live API tests. Reports are in `playwright-report`.
+
+The review preview uses port 59300 and the unchanged API on 8001 with its own `.preview-data` evidence store, leaving the user's original 3000/8000 services untouched.

@@ -2,6 +2,13 @@ export const API_BASE = (
   process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000"
 ).replace(/\/$/, "");
 
+export function errorMessage(error: unknown, fallback = "The request could not be completed.") {
+  if (!(error instanceof Error)) return fallback;
+  if (/failed to fetch|fetch failed|networkerror|network request failed|load failed/i.test(error.message))
+    return "Cannot reach the ModelXray API. Check that the service is running, then retry.";
+  return error.message || fallback;
+}
+
 export async function readApiError(response: Response) {
   try {
     const payload = await response.json();

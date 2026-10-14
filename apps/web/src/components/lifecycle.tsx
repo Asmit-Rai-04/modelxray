@@ -1,13 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
-import { api, storage } from "../lib/api";
+import { api, storage, errorMessage } from "../lib/api";
 import type { Result } from "../lib/types";
 import type { Job } from "../hooks/use-investigation-job";
 
 export function JobProgress({ job, cancel }: { job: Job; cancel: () => void }) {
   const active = ["PENDING", "RUNNING", "CANCELLING"].includes(job.status);
   return (
-    <section className="jobPanel" aria-label="Investigation progress">
+    <section className="jobPanel" data-status={job.status} aria-label="Investigation progress">
       <div role="status" aria-live="polite">
         <span className="eyebrow">{job.kind?.replaceAll("_", " ")}</span>
         <h2>{job.status.replaceAll("_", " ")}</h2>
@@ -67,7 +67,7 @@ export function RunHistory({
 }) {
   const [items, setItems] = useState<HistoryItem[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   async function refresh() {
     setLoading(true);
     setError(null);
@@ -80,7 +80,7 @@ export function RunHistory({
         ).items,
       );
     } catch (e) {
-      setError(e instanceof Error ? e.message : "History unavailable");
+      setError(errorMessage(e, "History unavailable"));
     } finally {
       setLoading(false);
     }
@@ -99,7 +99,7 @@ export function RunHistory({
       onLoad(result);
       storage.set("last-run", id);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Could not load investigation");
+      setError(errorMessage(e, "Could not load investigation"));
     } finally {
       setLoading(false);
     }

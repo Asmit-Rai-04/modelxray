@@ -99,7 +99,6 @@ export function InvestigationMap({
           role="img"
           aria-label="Model, profile, probe, experiment, validate, atlas. Boundary sensitivity branches from validation; regression compares atlas findings across versions."
         >
-          <path className="mapGrid" d="M0 55H960 M0 165H960 M0 275H960" />
           {edges.map(([a, b]) => (
             <path
               key={`${a}-${b}`}
@@ -117,7 +116,7 @@ export function InvestigationMap({
             <g
               key={n.id}
               data-node={n.id}
-              className={`mapNode ${result ? "active" : ""} ${activeNode === n.id ? "protocolSelected" : ""} ${n.id === "atlas" ? "red" : "green"}`}
+              className={`mapNode ${result ? "active" : ""} ${activeNode === n.id ? "protocolSelected" : ""} ${n.id === "atlas" && result && result.failure_atlas.length > 0 ? "red" : "neutral"}`}
               transform={`translate(${n.x} ${n.y})`}
             >
               <title>{`${n.label}: ${values[i]}`}</title>

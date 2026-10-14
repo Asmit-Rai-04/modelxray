@@ -8,7 +8,7 @@ import type {
   UploadedArtifact,
   Tab,
 } from "../lib/types";
-import { API_BASE, api, readApiError, storage } from "../lib/api";
+import { API_BASE, api, readApiError, storage, errorMessage } from "../lib/api";
 import { Icon, StatusDot, EmptyState } from "./ui";
 import { useInvestigationJob } from "../hooks/use-investigation-job";
 import { JobProgress, RunHistory } from "./lifecycle";
@@ -182,9 +182,7 @@ export default function Workspace() {
       });
     } catch (error) {
       setComparisonError(
-        error instanceof Error
-          ? error.message
-          : "The investigation request failed.",
+        errorMessage(error, "The investigation request failed."),
       );
     } finally {
       setLoading(null);
@@ -249,9 +247,7 @@ export default function Workspace() {
       });
     } catch (error) {
       setComparisonError(
-        error instanceof Error
-          ? error.message
-          : "ModelXray could not process the uploaded artifacts.",
+        errorMessage(error, "ModelXray could not process the uploaded artifacts."),
       );
     } finally {
       setUploading(false);
@@ -309,9 +305,7 @@ export default function Workspace() {
       setRegModelFile(null);
     } catch (error) {
       setComparisonError(
-        error instanceof Error
-          ? error.message
-          : "Model artifact registration failed.",
+        errorMessage(error, "Model artifact registration failed."),
       );
     } finally {
       setUploading(false);
@@ -348,7 +342,7 @@ export default function Workspace() {
       setRegDatasetFile(null);
     } catch (error) {
       setComparisonError(
-        error instanceof Error ? error.message : "Dataset registration failed.",
+        errorMessage(error, "Dataset registration failed."),
       );
     } finally {
       setUploading(false);
@@ -384,9 +378,7 @@ export default function Workspace() {
       setActiveTab("regression");
     } catch (error) {
       setComparisonError(
-        error instanceof Error
-          ? error.message
-          : "The uploaded-model comparison failed.",
+        errorMessage(error, "The uploaded-model comparison failed."),
       );
     } finally {
       setLoading(null);
@@ -470,7 +462,7 @@ export default function Workspace() {
               Model<span>Xray</span>
             </div>
             <div className="brandCaption">
-              MODEL ASSURANCE / FAILURE DISCOVERY
+              Model assurance
             </div>
           </div>
         </div>
@@ -498,39 +490,6 @@ export default function Workspace() {
             </button>
           ))}
         </nav>
-        <div className="sidebarSpacer" />
-        <div className="sidebarSectionLabel">System</div>
-        <a
-          className="navButton mutedNav"
-          href="https://github.com/Asmit-Rai-04/modelxray#readme"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="navIcon">
-            <Icon name="docs" />
-          </span>
-          <span>Documentation ↗</span>
-        </a>
-        <div className="systemCard">
-          <div>
-            <StatusDot tone={health === "online" ? "green" : "amber"} />{" "}
-            <span>API {health.toUpperCase()}</span>
-          </div>
-          <code>{API_BASE}</code>
-          <small>Local workspace · deterministic core</small>
-        </div>
-      </aside>
-
-      <section className="mainArea">
-        <header className="appHeader">
-          <div className="headerContext">
-            <span className="headerKicker">ML MODEL ASSURANCE</span>
-            <span className="headerDivider" />
-            <span>
-              <StatusDot tone={health === "online" ? "green" : "amber"} /> API{" "}
-              {health.toUpperCase()}
-            </span>
-          </div>
           <div className="headerActions">
             <button
               className="themeButton"
@@ -542,19 +501,33 @@ export default function Workspace() {
               <span>{theme === "dark" ? "Light" : "Dark"}</span>
             </button>
             <button
-              className="quietButton"
-              onClick={compareVersions}
-              disabled={busy}
-            >
-              {loading === "compare" ? "Comparing…" : "Demo comparison"}
-            </button>
-            <button
               className="primaryButton"
               onClick={openInvestigationSetup}
               disabled={busy}
             >
               New investigation
               <Icon name="arrow" />
+            </button>
+          </div>
+      </aside>
+
+      <section className="mainArea">
+        <header className="appHeader">
+          <div className="headerContext">
+            <span className="headerKicker">{result ? `Investigation ${result.investigation_id}` : "Local workspace"}</span>
+            <span className="headerDivider" />
+            <span>
+              <StatusDot tone={health === "online" ? "green" : "amber"} /> API{" "}
+              {health.toUpperCase()}
+            </span>
+          </div>
+          <div className="headerActions">
+            <button
+              className="quietButton"
+              onClick={compareVersions}
+              disabled={busy}
+            >
+              {loading === "compare" ? "Comparing…" : "Demo comparison"}
             </button>
           </div>
         </header>

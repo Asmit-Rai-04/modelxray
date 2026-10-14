@@ -84,6 +84,7 @@ export function FailureAtlas({
           filteredFailures.map((f) => (
             <button
               key={f.failure_id}
+              aria-pressed={selectedFailure?.failure_id === f.failure_id}
               className={`failureListItem ${selectedFailure?.failure_id === f.failure_id ? "selected" : ""}`}
               onClick={() => setSelectedFailureId(f.failure_id)}
             >

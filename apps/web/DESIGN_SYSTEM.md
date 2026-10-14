@@ -1,48 +1,58 @@
-# ModelXray visual system
+# ModelXray · Ink / Olive
 
-An evidence instrument: a compact navigation rail above an editorial analytical canvas. Overview connects findings to detail; Atlas uses a master/detail layout; Experiments uses an interval plot and dense table; Coverage exposes bounded search breadth; Regression compares versions and transitions.
+Neutral surfaces carry the scientific workspace; olive identifies actions and selection. Information, failures and warnings use separate semantic colors. Charts contain returned measurements, never decorative analytics.
 
-The landing page includes a four-stage protocol guide with pressed-state buttons, live explanatory text, and a matching SVG highlight. These highlights explain workflow steps; they are never job-progress states. The evidence ledger is collapsed before an investigation and opens when a run is loaded. Three editorial columns explain search, evidence and regression without decorative analytics.
+## Foundation
 
-## Tokens and typography
-
-`src/app/globals.css` owns semantic tokens and base component geometry. `instrument.css` owns the instrument shell, readable component scale, responsive rules and accessibility states. Components use CSS variables rather than theme-specific chart colors.
+`src/app/tokens.css` owns both palettes, font aliases, spacing and motion. `globals.css` is the single component and responsive stylesheet. The previous override stylesheet has been removed. Compatibility aliases `accent2` and `accent3` resolve to olive; chart information uses `info`.
 
 | Role | Dark | Light |
 | --- | --- | --- |
-| Canvas | Aubergine `#17131c` | Porcelain `#f2efe8` |
-| Primary text | Warm neutral `#f4eee7` | Aubergine `#241b2c` |
-| Secondary text | Lilac neutral `#c0b5c7` | Plum `#55465f` |
-| Accent / positive | Mineral green `#b6d4b0` | Olive `#455e38` |
-| Analytical accent | Lilac `#c9b5e0` | Plum `#6b477c` |
-| Severity | Rose `#ff9ca8` | Burgundy `#a62f4b` |
+| Canvas | `#0D0E0C` | `#F5F4EF` |
+| Surface 1 | `#151813` | `#FFFFFF` |
+| Surface 2 | `#191D17` | `#ECEDE6` |
+| Surface 3 | `#232820` | `#E2E6DA` |
+| Separator | `#32372C` | `#D6DACF` |
+| Text | `#EEEFE9` | `#1B2119` |
+| Secondary | `#B5BAAE` | `#515C4E` |
+| Muted | `#919A88` | `#65715F` |
+| Olive | `#A8B78B` | `#526B3F` |
+| Olive hover | `#B9C9A0` | `#415532` |
+| Selected surface | `#242D20` | `#E4EBDD` |
+| Failure | `#D78C84` | `#9C463E` |
+| Warning | `#D7B57B` | `#806020` |
+| Information | `#94ADBE` | `#406880` |
 
-Segoe UI/system sans carries controls and prose; Georgia carries editorial headings; Cascadia Code/Consolas carries identifiers and technical labels. Fonts require no network fetch. Body text is 16px; analytical metadata is 12–14px. Headings scale with viewport width. Long conditions wrap instead of hiding the evidence.
+Controls have stronger borders than noninteractive separators. Muted text is used on the canvas and primary surfaces; labels on denser secondary surfaces use secondary text for contrast. Success uses olive only where the underlying state supports success. An unloaded diagram is neutral. Its selected protocol step describes navigation, not job completion.
 
-Spacing tokens: 4, 8, 12, 16, 24, 32px. Panels use 16–24px padding, 1px semantic borders and a restrained 4px radius. Metrics form a continuous rail rather than floating cards. Severity always includes a text label.
+## Typography and spacing
 
-## Component states
+Geist Variable is the primary font for headings, navigation, buttons and prose. IBM Plex Mono is reserved for feature conditions, identifiers, code and chart annotations. Both are self-hosted WOFF2 assets supplied by pinned Fontsource development dependencies. No third-party font requests or runtime font library are required. `next/font/local` handles loading and fallback. The sans font is preloaded; the technical font is not.
 
-Primary actions use `--accent` / `--on-accent`; secondary controls use neutral surfaces and borders. Active navigation uses a border accent and `aria-current`. Disabled actions retain readable labels. Keyboard focus is a 3px outline with offset; upload surfaces expose focus within. Inputs and touch targets are at least 44px high. Errors use `role=alert`; job states and result counts use polite live regions. A skip link targets the workspace.
+Body: 14px with 1.55 line height. Prose: 14–16px. Metadata: 12–13px. Workspace headings: 30–36px. Section headings: 20–26px. Landing display: 44–68px. Numbers use tabular numerals. Conditions wrap without truncating accessible evidence.
 
-Empty workspaces explain their own data requirements. The primary investigation action opens upload setup; a separately labeled demo action submits the benchmark. A health label reflects `/health`, initially checking. Upload and comparison failures expose backend messages.
+Spacing follows 4, 8, 12, 16, 24 and 32px increments. Panels and primary controls use 8px radii; inputs and navigation use 6px. Panels use quiet separators without glow or drop shadows. Metrics form a continuous neutral rail.
 
-## Evidence graphics
+## Shell and states
 
-SVG node and edge coordinates share one topology table. Workflow links express relationships, never measured throughput. Boundary sensitivity is a branch from validation; regression is a separate comparison. Narrow screens scroll the diagram locally to preserve readable labels.
+The sticky header contains the wordmark, five workspaces, persistent theme control and primary action. A secondary row shows the current investigation identifier, actual API health and demo comparison. Evidence Ledger remains a collapsible utility. Navigation retains data and moves keyboard focus to the workspace.
 
-Effect plots use the backend's discovery effects and associated confidence intervals in percentage points. Holdout gaps are labeled separately. Regression plots contain only paired V2–V1 gaps, with no invented confidence intervals. Legends explain marks and units; expandable HTML tables expose exact values. Strategy bars display execution divided by generated candidates, with adjacent numerator/denominator text. Search coverage is explicitly bounded by generated hypotheses.
+Primary actions use olive with contrasting text; secondary controls use neutral surfaces. Active navigation exposes `aria-current`; protocol and filter selection expose `aria-pressed`. Disabled controls remain labeled. Uploads retain native file selection and filename feedback. Backend validation details remain visible; connection errors provide a readable explanation and retry actions.
 
-Long plots default to 12 visible entries; the complete axis domain and exact-value table still use every returned entry. An explicit control expands the plot. Confidence-interval legends are shown only when intervals exist. Region buttons connect the plot to Atlas; source-experiment actions open Experiments filtered by the actual experiment ID. Experiment filters operate on returned observations, and transition filters never discard backend regression results. Coverage lists all candidate features and identifies which were absent from a family's executed feature set.
+Focus uses a 3px olive outline, including focus within file surfaces. Controls have at least 44px height. Errors use alerts; job states and filter counts use live regions. A skip link leads to workspace content. Progress comes only from the server, cancellation is cooperative, and terminal states use the returned job status.
 
-Scrollable topology regions accept keyboard focus. Workspace navigation moves focus to the workspace and returns its context to view. Support percentages appear next to hypothesis gaps so support-based sorting can be assessed from the table.
+## Analytical views
 
-## Theme, motion and responsiveness
+Overview combines actual totals, workflow relationships, effects and region links. Atlas retains master/detail inspection and source experiments. Experiments has labeled filters, an effect plot and a seven-column table with a sticky header. Coverage shows execution against generated candidates and feature blind spots. Regression retains model baselines and backend transitions.
 
-Theme preference is applied before paint with a small initialization script, then maintained by React. Saved choice takes precedence over OS preference; storage restrictions are tolerated. Light and dark use separate semantic palettes, including SVG text and chart lines.
+SVG edges and node centers share one coordinate table. Paths describe relationships, never measured throughput. Protocol selection scrolls the stage into the local viewport. Plot and table regions accept keyboard focus. Mineral blue denotes confidence intervals, olive marks validated effects, and outlined points distinguish screened observations. Text and HTML tables provide color-independent alternatives. Charts explain units and basis. Discovery effects and holdout gaps remain separate. Regression plots use paired V2–V1 gaps without fabricated intervals.
 
-At 1180px the navigation wraps and the landing stacks. At 900px layouts collapse to one column, metrics to two columns, and forms stack. Tables and diagrams scroll within their panels. Desktop content is capped at 1480px. Controls retain visible labels on mobile.
+Long plots initially show 12 entries while retaining the full axis domain and exact-value table. Expansion reveals all returned entries. Region actions lead to Atlas; source actions filter the actual experiment ID. Coverage remains bounded by generated hypotheses.
 
-Motion is limited to brief control feedback. No chart animation represents inferred progress. Reduced-motion preference disables animations and transitions.
+## Responsive behavior and motion
 
-Automated axe checks cover both themes and all five workspaces plus setup; viewport checks cover 390, 768 and 1440px. Manual screen-reader and cross-browser checks remain separate acceptance work, not implied by automated scans.
+Content is capped at 1480px. Below 1180px navigation moves to a second row and the landing stacks. Below 900px analytical layouts and forms stack, metrics use two columns, and overflow stays inside local scroll regions. Below 620px controls wrap while preserving text and touch targets. Verification widths: 390, 768, 1024, 1280 and 1440px.
+
+Theme initializes before paint, persists locally and falls back to system preference when storage is unavailable. Foreground and background switch immediately to prevent low-contrast intermediate theme colors. Motion is limited to border feedback. Reduced motion disables all transitions and animations.
+
+Automated accessibility scans support review; manual assistive-technology and cross-browser certification remain separate work. See `VERIFICATION.md` for executed checks and limitations.

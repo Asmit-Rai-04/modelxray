@@ -129,6 +129,7 @@ test("landing explains the real protocol and keeps the ledger compact", async ({
         .evaluate((element) => element.scrollLeft),
     )
     .toBeGreaterThan(0);
+  await expect(page.locator("[data-node=validate] .nodeValue")).toBeVisible();
   await page.locator(".ledgerDisclosure > summary").click();
   await expect(
     page.getByRole("combobox", { name: "Previous investigations" }),
@@ -467,7 +468,7 @@ test("shared topology edge endpoints exactly coincide with node centers at width
   page,
 }) => {
   await go(page);
-  for (const width of [390, 768, 1440])
+  for (const width of [390, 768, 1024, 1280, 1440])
     for (const zoom of [1, 1.5, 2]) {
       await page.setViewportSize({ width, height: 900 });
       await page.evaluate((z) => (document.body.style.zoom = String(z)), zoom);
@@ -503,8 +504,9 @@ for (const theme of ["light", "dark"])
         .click();
     await expect(page.locator("html")).toHaveCSS(
       "color",
-      theme === "dark" ? "rgb(244, 238, 231)" : "rgb(36, 27, 44)",
+      theme === "dark" ? "rgb(238, 239, 233)" : "rgb(27, 33, 25)",
     );
+    await page.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
     await page.screenshot({
       path: path.resolve(`.test-artifacts/landing-${theme}.png`),
       fullPage: true,
@@ -522,6 +524,7 @@ for (const theme of ["light", "dark"])
         () => document.documentElement.scrollWidth <= innerWidth + 1,
       ),
     ).toBeTruthy();
+    await page.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
     await page.screenshot({
       path: path.resolve(`.test-artifacts/landing-${theme}-mobile.png`),
       fullPage: true,
@@ -547,7 +550,11 @@ for (const theme of ["light", "dark"])
       "Regression",
     ]) {
       await navigate(page, tab);
-      for (const width of [390, 768, 1440]) {
+      if (tab === "Regression") {
+        await page.getByRole("button", { name: "Compare demo versions" }).click();
+        await expect(page.getByRole("heading", { name: "Failure movement" })).toBeVisible();
+      }
+      for (const width of [390, 768, 1024, 1280, 1440]) {
         await page.setViewportSize({ width, height: 900 });
         expect(
           await page.evaluate(
@@ -557,7 +564,8 @@ for (const theme of ["light", "dark"])
         ).toBeTruthy();
       }
       await page.setViewportSize({ width: 1280, height: 900 });
-      await page.screenshot({
+      await page.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
+    await page.screenshot({
         path: path.resolve(
           `.test-artifacts/${tab.toLowerCase().replaceAll(" ", "-")}-${theme}.png`,
         ),
@@ -588,7 +596,7 @@ for (const theme of ["light", "dark"])
           .analyze()
       ).violations,
     ).toEqual([]);
-    for (const width of [390, 768, 1440]) {
+    for (const width of [390, 768, 1024, 1280, 1440]) {
       await page.setViewportSize({ width, height: 900 });
       expect(
         await page.evaluate(
@@ -597,6 +605,8 @@ for (const theme of ["light", "dark"])
       ).toBeTruthy();
     }
     await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
+    await page.screenshot({ path: path.resolve(`.test-artifacts/setup-${theme}.png`), fullPage: true });
     expect(
       await page
         .locator(".primaryButton")
@@ -604,3 +614,21 @@ for (const theme of ["light", "dark"])
         .evaluate((el) => getComputedStyle(el).transitionDuration),
     ).toBe("0s");
   });
+
+test("Ink Olive tokens, local fonts and readable disconnected state", async ({ page }) => {
+  await page.route(`${base}/**`, (route) => route.abort("connectionrefused"));
+  await page.goto("/");
+  await expect(page.getByRole("alert").first()).toContainText("Cannot reach the ModelXray API");
+  await expect(page.getByText("Failed to fetch", { exact: true })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Refresh history" })).toBeEnabled();
+  for (const theme of ["dark", "light"]) {
+    if ((await page.locator("html").getAttribute("data-theme")) !== theme)
+      await page.getByRole("button", { name: `Switch to ${theme} theme` }).click();
+    await expect(page.locator("html")).toHaveCSS("background-color", theme === "dark" ? "rgb(13, 14, 12)" : "rgb(245, 244, 239)");
+    await page.evaluate(() => document.fonts.ready);
+    expect(await page.locator("h1").evaluate(el => getComputedStyle(el).fontFamily)).toContain("geist");
+    expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze()).violations).toEqual([]);
+    await page.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
+    await page.screenshot({ path: path.resolve(`.test-artifacts/disconnected-${theme}.png`), fullPage: true });
+  }
+});

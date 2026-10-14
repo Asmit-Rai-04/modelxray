@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { api, storage } from "../lib/api";
+import { api, storage, errorMessage } from "../lib/api";
 import type { Result } from "../lib/types";
 
 export type Job = {
@@ -47,7 +47,7 @@ export function useInvestigationJob(onResult: (result: Result) => void) {
       } catch (e) {
         if (!disposed)
           setError(
-            `Recovery failed: ${e instanceof Error ? e.message : "API unavailable"}. Saved identifiers are retained; retry recovery when the API is available.`,
+            `Recovery failed: ${errorMessage(e, "API unavailable")}. Saved identifiers are retained; retry recovery when the API is available.`,
           );
       } finally {
         if (!disposed) setRecovering(false);
@@ -88,7 +88,7 @@ export function useInvestigationJob(onResult: (result: Result) => void) {
       } catch (e) {
         if (!disposed) {
           setError(
-            `Job connection interrupted: ${e instanceof Error ? e.message : "API unavailable"}. Retrying; the server job may still be running.`,
+            `Job connection interrupted: ${errorMessage(e, "API unavailable")}. Retrying; the server job may still be running.`,
           );
           timer = setTimeout(poll, 4000);
         }
@@ -126,7 +126,7 @@ export function useInvestigationJob(onResult: (result: Result) => void) {
         ),
       );
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Cancellation request failed.");
+      setError(errorMessage(e, "Cancellation request failed."));
     }
   }
   return {

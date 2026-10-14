@@ -76,7 +76,7 @@ export function Landing({
         </div>
         <div className="heroMeta">
           <span>
-            <StatusDot tone="green" /> bounded search
+            <StatusDot tone="blue" /> bounded search
           </span>
           <span>
             <StatusDot tone="blue" /> BH-FDR + holdout

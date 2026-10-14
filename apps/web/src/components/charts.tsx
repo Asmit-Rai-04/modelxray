@@ -45,12 +45,12 @@ function IntervalChart({
         <h3>{title}</h3>
         <p>{description}</p>
         <p className="chartLegend">
-          ● Reported value ·{" "}
+          {rows.some((row) => row.validated === false) ? "● Validated effect · ○ Screened effect · " : "● Reported value · "}
           {hasIntervals ? "━ Backend confidence interval · " : ""}dashed line:
           zero · units: {unit === "pp" ? "percentage points (pp)" : unit}
         </p>
       </figcaption>
-      <div className="chartScroll">
+      <div className="chartScroll" role="region" aria-label={`${title} plot`} tabIndex={0}>
         <svg
           viewBox={`0 0 820 ${plotted.length * 44 + 60}`}
           role="img"
@@ -132,7 +132,7 @@ function IntervalChart({
       )}
       <details>
         <summary>Accessible evidence table · {rows.length} entries</summary>
-        <div className="tableScroll">
+        <div className="tableScroll" role="region" aria-label={`${title} data`} tabIndex={0}>
           <table>
             <caption>{title} — exact backend values</caption>
             <thead>
