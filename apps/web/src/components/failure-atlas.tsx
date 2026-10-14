@@ -48,6 +48,7 @@ export function FailureAtlas({
           <label>
             Severity
             <select
+              aria-label="Severity"
               value={severityFilter}
               onChange={(e) => setSeverityFilter(e.target.value)}
             >
@@ -59,7 +60,7 @@ export function FailureAtlas({
           </label>
           <label>
             Sort by
-            <select value={sort} onChange={(e) => setSort(e.target.value)}>
+            <select aria-label="Sort by" value={sort} onChange={(e) => setSort(e.target.value)}>
               <option value="evidence">Evidence score</option>
               <option value="gap">Performance gap</option>
               <option value="support">Support</option>
@@ -68,6 +69,7 @@ export function FailureAtlas({
           <p role="status">
             {filteredFailures.length} of {failureCount} regions
           </p>
+          <button className="textButton" disabled={!filter && severityFilter === "ALL" && sort === "evidence"} onClick={() => { setFilter(""); setSeverityFilter("ALL"); setSort("evidence"); }}>Clear region filters</button>
         </div>
         {failureCount > 0 && !filteredFailures.length && (
           <p>No regions match these filters.</p>
@@ -105,6 +107,9 @@ export function FailureAtlas({
         )}
       </div>
       <div className="failureDetail contentPanel">
+        {selectedFailure && !filteredFailures.some(f => f.failure_id === selectedFailure.failure_id) && (
+          <p className="selectionHint" role="status">Selected region is outside the current filters. Its evidence remains available below.</p>
+        )}
         {selectedFailure ? (
           <>
             <SectionHeader
@@ -192,7 +197,10 @@ export function FailureAtlas({
                 sensitivity; they do not independently prove model failure.
               </p>
               {selectedCounterexamples.length ? (
-                selectedCounterexamples.slice(0, 4).map((c, i) => (
+                <>
+                <p className="panelFootnote">{selectedCounterexamples.length} attached boundary {selectedCounterexamples.length === 1 ? "item" : "items"}</p>
+                <div className="boundaryEvidenceList" role="region" aria-label="Boundary sensitivity items" tabIndex={0}>
+                {selectedCounterexamples.map((c, i) => (
                   <div className="miniEvidence" key={c.counterexample_id ?? i}>
                     <span>{c.changed_feature}</span>
                     <strong>
@@ -203,8 +211,11 @@ export function FailureAtlas({
                       {c.original_prediction} → {c.counterfactual_prediction} ·{" "}
                       {c.search_status}
                     </small>
+                    {c.counterexample_id && <small className="evidenceIdentifier">{c.counterexample_id}</small>}
                   </div>
-                ))
+                ))}
+                </div>
+                </>
               ) : (
                 <div className="panelFootnote">
                   No boundary-sensitivity evidence attached to this region.

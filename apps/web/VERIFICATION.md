@@ -1,5 +1,17 @@
 # Ink / Olive review and verification
 
+## Current all-workspace review
+
+Reviewed Overview, Failure Atlas, Experiments, Search Coverage and Regression in the live preview and through isolated browser tests. Retained the light palette, approved animated landing diagram, existing API contracts and backend statistical code. Coverage and the landing composition needed no further redesign.
+
+Implemented mobile severity/gap visibility; truthful missing-feature counts; Atlas filter reset, explicit out-of-filter selection and complete boundary-item access; bounded experiment scrolling with a working sticky header and aligned numeric columns; bounded regression lists with expandable before/after evidence; duplicate-model guidance; uniquely labeled model/dataset assets; disabled editing while requests are pending; and native registration-picker reset so the same file can be selected again.
+
+Added `src/components/regression-transition.tsx`. Updated `globals.css`, Overview, Atlas, Experiments, Regression and InvestigationSetup, plus component/live tests. Test fixtures now use the persisted investigation API response so backend-assigned counterexample IDs and their region associations are checked directly rather than omitted by the raw investigation producer. No backend source or dependency changes were required.
+
+Verification: `npm test` passed fixture generation, TypeScript, production build and **22 browser/live API tests**. After the final asset-label refinement, the production build and **two targeted tests passed** for all-workspace accessibility/responsiveness and live uploaded regression, including same-file re-registration and unique labels. Expanded transition evidence also passed axe. Viewport checks cover 390, 768, 1024, 1280 and 1440px; SVG alignment and reduced motion remain tested. Screenshots of every workspace and expanded regression were reviewed. `git diff --check` passed. The final bundle remains approximately 121 kB first-load JavaScript.
+
+Limits remain unchanged: Chromium was tested; Firefox/Safari, manual screen readers, touch hardware, private user models, production load/deployment and server-restart recovery remain unverified. The previous backend verification and API capability limitations are recorded below; backend unit tests were not repeated for these frontend-only changes.
+
 ## Reference-inspired motion refinement
 
 Used DesignBall's [Flow Chart Slide](https://dribbble.com/shots/6269129-Flow-Chart-Slide) as inspiration for staged connection drawing and staggered node reveals. Preserved the existing diagram, light palette, semantics and real backend behavior. Temporary drawing overlays share the original path function and fade away; no reference percentages, assets or statistical claims were imported. Motion is limited to the landing illustration, finishes under five seconds, and respects reduced motion.

@@ -135,10 +135,12 @@ export function Experiments({
           </button>
         </div>
       )}
+      <p className="tableScrollHint">Scroll horizontally to inspect gaps, support and validation.</p>
       <div
         className="experimentTable"
         role="table"
         aria-label="Executed hypotheses"
+        tabIndex={0}
       >
         <div className="experimentHead" role="row">
           <span role="columnheader">ID</span>

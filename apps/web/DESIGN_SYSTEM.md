@@ -4,6 +4,8 @@ Current update: the UI uses only the existing light Stone / Olive palette. Theme
 
 Neutral surfaces carry the scientific workspace; olive identifies actions and selection. Information, failures and warnings use separate semantic colors. Charts contain returned measurements, never decorative analytics.
 
+Inspection refinements: mobile Overview rows retain severity and discovery gap. Atlas supports filter reset, makes selections outside the filter explicit, and exposes every attached boundary item with its backend identifier in a focusable scroll region. Experiment tables use bounded scrolling, sticky aligned headers and a small horizontal-scroll hint. Regression transitions disclose actual V1/V2 conditions, discovery/holdout gaps, evidence scores and severity; absent measurements remain dashes. Model/dataset selectors include real asset IDs to distinguish repeated filenames. Pending uploads/comparisons disable editable inputs, and completed registrations reset native file pickers consistently with React state.
+
 ## Foundation
 
 `src/app/tokens.css` owns both palettes, font aliases, spacing and motion. `globals.css` is the single component and responsive stylesheet. The previous override stylesheet has been removed. Compatibility aliases `accent2` and `accent3` resolve to olive; chart information uses `info`.

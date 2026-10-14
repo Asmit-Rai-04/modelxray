@@ -59,6 +59,7 @@ export function InvestigationSetup({
           <span>MODEL ARTIFACT</span>
           <input
             aria-label="MODEL ARTIFACT"
+            disabled={busy}
             type="file"
             accept=".joblib,.pkl,.pickle"
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -72,6 +73,7 @@ export function InvestigationSetup({
           <span>EVALUATION DATASET</span>
           <input
             aria-label="EVALUATION DATASET"
+            disabled={busy}
             type="file"
             accept=".csv"
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -86,6 +88,7 @@ export function InvestigationSetup({
         <label>
           <span>TARGET COLUMN</span>
           <input
+            disabled={busy}
             value={targetColumn}
             onChange={(e) => setTargetColumn(e.target.value)}
             placeholder="target"
@@ -94,6 +97,7 @@ export function InvestigationSetup({
         <label>
           <span>METRIC</span>
           <select
+            disabled={busy}
             aria-label="METRIC"
             value={metric}
             onChange={(e) =>

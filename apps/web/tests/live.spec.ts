@@ -108,6 +108,13 @@ test("live backend: real model upload, new investigation and uploaded regression
     .getByRole("button", { name: "Register model", exact: true })
     .click();
   await expect(page.getByLabel("MODEL V2", { exact: true }).locator('option').filter({hasText:'model-v2.joblib'})).toHaveCount(1);
+  await expect(page.getByLabel("MODEL VERSION ARTIFACT")).toHaveValue("");
+  await page.getByLabel("MODEL VERSION ARTIFACT").setInputFiles(path.resolve(".test-artifacts/model-v2.joblib"));
+  await expect(page.getByRole("button", {name:"Register model",exact:true})).toBeEnabled();
+  await page.getByRole("button", {name:"Register model",exact:true}).click();
+  await expect(page.getByLabel("MODEL V2", {exact:true}).locator('option').filter({hasText:'model-v2.joblib'})).toHaveCount(2);
+  const modelLabels = await page.getByLabel("MODEL V2", {exact:true}).locator("option").allTextContents();
+  expect(new Set(modelLabels).size).toBe(modelLabels.length);
   const ids = await page
     .getByLabel("MODEL V1", { exact: true })
     .locator("option")
@@ -115,6 +122,9 @@ test("live backend: real model upload, new investigation and uploaded regression
       opts.map((o) => (o as HTMLOptionElement).value).filter(Boolean),
     );
   await page.getByLabel("MODEL V1", { exact: true }).selectOption(ids[0]);
+  await page.getByLabel("MODEL V2", { exact: true }).selectOption(ids[0]);
+  await expect(page.getByText("Choose different model assets for V1 and V2 to compare versions.")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Compare models", exact: true })).toBeDisabled();
   await page.getByLabel("MODEL V2", { exact: true }).selectOption(ids.at(-1)!);
   const datasets = await page
     .getByLabel("DATASET", { exact: true })
@@ -126,6 +136,8 @@ test("live backend: real model upload, new investigation and uploaded regression
   await page
     .getByRole("button", { name: "Compare models", exact: true })
     .click();
+  await expect(page.getByLabel("MODEL V1", { exact: true })).toBeDisabled();
+  await expect(page.getByLabel("REGRESSION METRIC", { exact: true })).toBeDisabled();
   await expect(page.getByText("UPLOADED MODEL COMPARISON")).toBeVisible({
     timeout: 120000,
   });

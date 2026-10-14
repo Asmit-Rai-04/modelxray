@@ -146,12 +146,12 @@ export function Overview({
             </div>
             <div>
               <span>NUMERIC FEATURES</span>
-              <strong>{result.dataset.numeric_features?.length ?? 0}</strong>
+              <strong>{result.dataset.numeric_features?.length ?? "—"}</strong>
             </div>
             <div>
               <span>CATEGORICAL FEATURES</span>
               <strong>
-                {result.dataset.categorical_features?.length ?? 0}
+                {result.dataset.categorical_features?.length ?? "—"}
               </strong>
             </div>
             <div>

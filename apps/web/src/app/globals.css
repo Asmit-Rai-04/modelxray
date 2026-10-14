@@ -773,6 +773,9 @@ svg {
   margin-top: 13px;
 }
 .regressionList {
+  max-height: 720px;
+  overflow: auto;
+  scrollbar-gutter: stable;
   margin-top: 20px;
   border-top: 1px solid var(--line);
 }
@@ -1420,6 +1423,29 @@ th {
   padding: 24px;
   scroll-margin-top: 110px;
 }
+
+/* Inspection utilities shared by analytical workspaces. */
+.selectionHint { padding: 12px 16px; border-left: 2px solid var(--accent); background: var(--panel2); color: var(--muted); font-size: 13px; line-height: 1.65; }
+.atlasFilters > p { grid-column: 1; align-self: center; }
+.atlasFilters > button { grid-column: 2; justify-self: end; padding-inline: 0; }
+.boundaryEvidenceList { max-height: 380px; overflow: auto; scrollbar-gutter: stable; }
+.evidenceIdentifier { font-family: var(--mono); overflow-wrap: anywhere; }
+.experimentHead > :nth-child(4),.experimentHead > :nth-child(5),.experimentHead > :nth-child(6) { text-align: right; }
+.tableScrollHint { display: none; color: var(--muted); font-size: 12px; }
+.experimentTable:focus-visible,.regressionList:focus-visible,.boundaryEvidenceList:focus-visible { outline-offset: -3px; }
+.transitionEvidence { margin-top: 12px; }
+.transitionEvidence summary { font-size: 13px; color: var(--accent); }
+.transitionEvidenceGrid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; padding: 16px; background: var(--panel2); border-radius: 6px; }
+.transitionEvidenceGrid h3 { font-size: 14px; margin: 0 0 12px; }
+.transitionCondition { font: 12px/1.65 var(--mono); overflow-wrap: anywhere; margin: 0 0 16px; }
+.transitionEvidenceGrid dl { margin: 0; font-size: 12px; }
+.transitionEvidenceGrid dl > div { display: flex; justify-content: space-between; gap: 12px; padding-block: 6px; border-top: 1px solid var(--line); }
+.transitionEvidenceGrid dt { color: var(--muted); }
+.transitionEvidenceGrid dd { margin: 0; font-variant-numeric: tabular-nums; text-align: right; }
+@media(max-width:1180px) { .tableScrollHint { display: block; } }
+@media(max-width:900px) { .clusterRow > .severityPill { grid-column: 2; grid-row: 2; } .clusterRow > .clusterMain { grid-column: 2; grid-row: 1; } .clusterRow > .clusterIndex { grid-row: 1 / span 2; } .clusterRow > .clusterMetric:nth-last-child(3) { grid-column: 3; grid-row: 1 / span 2; } }
+@media(max-width:620px) { .transitionEvidenceGrid { grid-template-columns: 1fr; } }
+
 @media (prefers-reduced-motion: reduce) {
 *,
   *:before,
@@ -2279,7 +2305,7 @@ button:disabled {
   background: var(--panel2);
   font: 500 12px var(--sans);
 }
-.experimentWorkspace .tableScroll {
+.experimentWorkspace .experimentTable {
   max-height: 680px;
 }
 .experimentRow {
@@ -2605,8 +2631,7 @@ progress {
 .clusterRow {
   grid-template-columns: 24px minmax(0, 1fr) 76px;
 }
-.clusterRow > .severityPill,
-  .clusterMetric:nth-last-child(-n + 2) {
+.clusterMetric:nth-last-child(-n + 2) {
   display: none;
 }
 .detailGrid {
@@ -2764,10 +2789,14 @@ progress {
 .clusterRow {
   grid-template-columns: 20px minmax(0, 1fr) auto;
 }
-.clusterRow > .severityPill,
-  .clusterMetric:nth-last-child(-n + 3) {
-  display: none;
+.clusterRow > .severityPill {
+  display: inline-flex;
+  grid-column: 2;
+  grid-row: 2;
 }
+.clusterRow > .clusterIndex { grid-row: 1 / span 2; }
+.clusterRow > .clusterMain { grid-column: 2; grid-row: 1; }
+.clusterRow > .clusterMetric:nth-last-child(3) { display: block; grid-column: 3; grid-row: 1 / span 2; }
 .detailGrid {
   grid-template-columns: 1fr 1fr;
 }

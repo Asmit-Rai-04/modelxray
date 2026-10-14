@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ChangeEvent } from "react";
 import type { CompareResult, UploadedArtifact } from "../lib/types";
-import { pct, pp, basisLabel, isDemoComparison } from "../lib/format";
+import { pct, basisLabel, isDemoComparison } from "../lib/format";
 import { Icon, SectionHeader, EmptyState } from "./ui";
 import { RegressionChart } from "./charts";
+import { RegressionTransition } from "./regression-transition";
 export function Regression({
   loading,
   busy,
@@ -58,6 +59,10 @@ export function Regression({
   compareUploadedModels: () => void;
 }) {
   const [transition, setTransition] = useState("ALL");
+  const modelInput = useRef<HTMLInputElement>(null);
+  const datasetInput = useRef<HTMLInputElement>(null);
+  useEffect(() => { if (!regModelFile && modelInput.current) modelInput.current.value = ""; }, [regModelFile]);
+  useEffect(() => { if (!regDatasetFile && datasetInput.current) datasetInput.current.value = ""; }, [regDatasetFile]);
   const visibleDeltas =
     comparison?.summary.deltas.filter(
       (delta) => transition === "ALL" || delta.status === transition,
@@ -236,6 +241,8 @@ export function Regression({
             <span>MODEL VERSION ARTIFACT</span>
             <input
               aria-label="MODEL VERSION ARTIFACT"
+              ref={modelInput}
+              disabled={busy}
               type="file"
               accept=".joblib,.pkl,.pickle"
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -248,6 +255,8 @@ export function Regression({
             <span>EVALUATION DATASET</span>
             <input
               aria-label="EVALUATION DATASET"
+              ref={datasetInput}
+              disabled={busy}
               type="file"
               accept=".csv"
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -286,12 +295,12 @@ export function Regression({
               onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                 setCmpModelV1(e.target.value)
               }
-              disabled={uploadedModels.length < 2}
+              disabled={busy || uploadedModels.length < 2}
             >
               <option value="">Select model</option>
               {uploadedModels.map((m) => (
                 <option key={m.asset_id} value={m.asset_id}>
-                  {m.filename}
+                  {m.filename} · {m.asset_id}
                 </option>
               ))}
             </select>
@@ -304,12 +313,12 @@ export function Regression({
               onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                 setCmpModelV2(e.target.value)
               }
-              disabled={uploadedModels.length < 2}
+              disabled={busy || uploadedModels.length < 2}
             >
               <option value="">Select model</option>
               {uploadedModels.map((m) => (
                 <option key={m.asset_id} value={m.asset_id}>
-                  {m.filename}
+                  {m.filename} · {m.asset_id}
                 </option>
               ))}
             </select>
@@ -322,12 +331,12 @@ export function Regression({
               onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                 setCmpDataset(e.target.value)
               }
-              disabled={!uploadedDatasets.length}
+              disabled={busy || !uploadedDatasets.length}
             >
               <option value="">Select dataset</option>
               {uploadedDatasets.map((d) => (
                 <option key={d.asset_id} value={d.asset_id}>
-                  {d.filename}
+                  {d.filename} · {d.asset_id}
                 </option>
               ))}
             </select>
@@ -337,13 +346,15 @@ export function Regression({
           <label>
             <span>REGRESSION TARGET COLUMN</span>
             <input
-              value={targetColumn}
+              disabled={busy}
+            value={targetColumn}
               onChange={(e) => setTargetColumn(e.target.value)}
             />
           </label>
           <label>
             <span>REGRESSION METRIC</span>
             <select
+              disabled={busy}
               aria-label="REGRESSION METRIC"
               value={metric}
               onChange={(e) =>
@@ -355,9 +366,11 @@ export function Regression({
             </select>
           </label>
         </div>
+        {cmpModelV1 && cmpModelV1 === cmpModelV2 && <p id="regression-selection-help" className="selectionHint" role="status">Choose different model assets for V1 and V2 to compare versions.</p>}
         <div className="regCompareActions">
           <button
             className="primaryButton"
+            aria-describedby={cmpModelV1 && cmpModelV1 === cmpModelV2 ? "regression-selection-help" : undefined}
             onClick={compareUploadedModels}
             disabled={
               busy ||
@@ -373,7 +386,7 @@ export function Regression({
           </button>
           <div className="sessionCount">
             {uploadedModels.length} models · {uploadedDatasets.length} datasets
-            registered this session
+            available in this workspace
           </div>
         </div>
       </section>
@@ -427,33 +440,9 @@ export function Regression({
               </p>
             </div>
           )}
-          <div className="regressionList">
+          <div className="regressionList" role="region" aria-label="Regression transition list" tabIndex={0}>
             {visibleDeltas.map((d) => (
-              <div
-                className="regressionListRow"
-                key={`${d.experiment_id_v1 ?? "none"}-${d.experiment_id_v2 ?? "none"}-${d.status}-${d.condition_v1 ?? d.condition_v2 ?? "region"}`}
-              >
-                <div className="regressionStatus">
-                  <span className={`statusInline ${d.status.toLowerCase()}`}>
-                    {d.status}
-                  </span>
-                  <strong>
-                    {d.condition_v2 ?? d.condition_v1 ?? "Unmatched region"}
-                  </strong>
-                  <small>
-                    {d.experiment_id_v1 ?? "—"} → {d.experiment_id_v2 ?? "—"}
-                  </small>
-                </div>
-                <div className="regressionDeltaValue">
-                  {d.gap_v1 !== null && d.gap_v2 !== null
-                    ? `${pp(d.gap_v1)} → ${pp(d.gap_v2)}`
-                    : d.gap_v2 !== null
-                      ? `NEW · ${pp(d.gap_v2)}`
-                      : d.gap_v1 !== null
-                        ? `FIXED · was ${pp(d.gap_v1)}`
-                        : "—"}
-                </div>
-              </div>
+              <RegressionTransition key={`${d.experiment_id_v1 ?? "none"}-${d.experiment_id_v2 ?? "none"}-${d.status}-${d.condition_v1 ?? d.condition_v2 ?? "region"}`} delta={d} />
             ))}
           </div>
         </section>

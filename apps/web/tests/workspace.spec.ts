@@ -207,6 +207,13 @@ test("experiment filtering, reset and chart expansion retain actual backend entr
   await expect(
     page.getByRole("table", { name: "Executed hypotheses" }).getByRole("row"),
   ).toHaveCount(observations.length + 1);
+  const table = page.getByRole("table", { name: "Executed hypotheses" });
+  await expect(table).toHaveAttribute("tabindex", "0");
+  await table.evaluate(el => el.scrollTop = el.scrollHeight);
+  expect(await table.evaluate(el => el.scrollTop)).toBeGreaterThan(0);
+  const headerBounds = await page.locator(".experimentHead").boundingBox();
+  const tableBounds = await table.boundingBox();
+  expect(Math.abs(headerBounds!.y - tableBounds!.y)).toBeLessThan(2);
 });
 
 test("coverage exposes unexecuted features from the returned candidate set", async ({
@@ -235,6 +242,40 @@ test("coverage exposes unexecuted features from the returned candidate set", asy
   ).toBeVisible();
 });
 
+test("Atlas resets filters, preserves selection and exposes attached evidence identifiers", async ({ page }) => {
+  await go(page, true);
+  await navigate(page, "Failure Atlas");
+  const selected = result.failure_atlas[0];
+  await page.getByLabel("Search regions").fill("no-such-region");
+  await expect(page.getByText(/Selected region is outside the current filters/)).toBeVisible();
+  await expect(page.locator(".failureDetail h2")).toHaveText(selected.condition);
+  await page.getByLabel("Severity", { exact: true }).selectOption("HIGH");
+  await page.getByLabel("Sort by", { exact: true }).selectOption("gap");
+  await page.getByRole("button", { name: "Clear region filters" }).click();
+  await expect(page.getByLabel("Search regions")).toHaveValue("");
+  await expect(page.getByLabel("Severity", { exact: true })).toHaveValue("ALL");
+  await expect(page.getByLabel("Sort by", { exact: true })).toHaveValue("evidence");
+  await expect(page.locator(".failureListItem")).toHaveCount(result.failure_atlas.length);
+  const attached = result.counterexamples.filter((item: {counterexample_id:string}) => selected.counterexample_ids.includes(item.counterexample_id));
+  expect(attached.length).toBeGreaterThan(0);
+  {
+    const evidence = page.getByRole("region", {name:"Boundary sensitivity items"});
+    await expect(evidence.locator(".miniEvidence")).toHaveCount(attached.length);
+    for (const item of attached) await expect(evidence).toContainText(item.counterexample_id);
+    await expect(evidence).toHaveAttribute("tabindex", "0");
+  }
+});
+
+test("mobile Overview retains severity and measured gap", async ({ page }) => {
+  await go(page, true);
+  await page.setViewportSize({ width: 390, height: 844 });
+  const row = page.locator(".clusterRow").first();
+  await expect(row.locator(".severityPill")).toBeVisible();
+  await expect(row.locator(".severityPill")).toHaveText(result.failure_atlas[0].severity);
+  await expect(row.locator(".clusterMetric").first()).toBeVisible();
+  await expect(row.locator(".clusterMetric").first()).toContainText(`${(result.failure_atlas[0].gap * 100).toFixed(1)} pp`);
+});
+
 test("regression transition filters expose every returned match", async ({
   page,
 }) => {
@@ -254,6 +295,17 @@ test("regression transition filters expose every returned match", async ({
   await expect(page.locator(".regressionListRow")).toHaveCount(
     comparison.summary.deltas.length,
   );
+  const evidence = page.locator(".transitionEvidence").first();
+  await evidence.locator("summary").click();
+  const first = comparison.summary.deltas[0];
+  await expect(evidence).toContainText(first.condition_v1 ?? "No matched region");
+  await expect(evidence).toContainText(first.condition_v2 ?? "No matched region");
+  await expect(evidence).toContainText("Holdout gap");
+  await expect(evidence).toContainText(first.match_type.replaceAll("_", " "));
+  await expect(page.getByRole("region", { name: "Regression transition list" })).toHaveAttribute("tabindex", "0");
+  expect((await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa","wcag22aa"]).analyze()).violations).toEqual([]);
+  await page.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0,0); });
+  await page.screenshot({path:path.resolve(".test-artifacts/regression-evidence-expanded.png"),fullPage:true});
 });
 test("all five workspaces have distinct empty states and working navigation", async ({
   page,
