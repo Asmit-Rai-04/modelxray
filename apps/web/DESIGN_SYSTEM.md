@@ -1,6 +1,6 @@
 # ModelXray · Ink / Olive
 
-Current update: the UI uses only the existing light Stone / Olive palette. Theme switching and dark/system initialization have been removed. The landing diagram is replaced by a responsive six-step interactive guide with optional play/pause, stage explanations and reduced-motion support. Analytical workspace diagrams and all backend workflows remain unchanged. The original dark palette below is retained as design history, not an available theme.
+Current update: the UI uses only the existing light Stone / Olive palette. Theme switching and dark/system initialization have been removed. The original landing SVG diagram and four stage controls are restored. Selected rings pulse and incoming paths animate briefly when a stage is selected, with three repetitions under five seconds and reduced-motion support. The complete diagram scales within desktop panels; narrow screens retain local scrolling. Analytical workspace diagrams and all backend workflows remain unchanged. The original dark palette below is retained as design history, not an available theme.
 
 Neutral surfaces carry the scientific workspace; olive identifies actions and selection. Information, failures and warnings use separate semantic colors. Charts contain returned measurements, never decorative analytics.
 

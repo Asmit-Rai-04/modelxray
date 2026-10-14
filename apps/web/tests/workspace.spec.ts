@@ -116,22 +116,22 @@ test("landing explains the real protocol and keeps the ledger compact", async ({
   await expect(
     page.getByRole("heading", { name: "Ask the evidence to hold up." }),
   ).toBeVisible();
+  await expect(page.locator("[data-node=validate]")).toHaveClass(/protocolSelected/);
+  await expect(page.locator(".protocolHalo")).toHaveCSS("animation-name", "protocol-pulse");
+  await expect(page.locator(".selectedTrace")).toHaveCSS("animation-name", "protocol-flow");
+  await expect(page.locator(".protocolHalo")).toHaveCSS("animation-iteration-count", "3");
   await page.setViewportSize({ width: 390, height: 844 });
-  await expect(page.getByRole("button", { name: "Explore Validate step" })).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator(".workflowGuide")).toBeVisible();
-  await page.getByRole("button", { name: "Play walkthrough" }).click();
-  await expect(page.getByRole("button", { name: "Pause walkthrough" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Explore Atlas step" })).toHaveAttribute("aria-pressed", "true");
-  await page.getByRole("button", { name: "Explore Profile step" }).click();
-  await expect(page.getByRole("button", { name: "Play walkthrough" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Start with the evaluation context." })).toBeVisible();
-  await page.getByRole("button", { name: "Explore Validate step" }).press("Enter");
+  await guide.getByRole("button", { name: "Profile", exact: true }).click();
+  await guide.getByRole("button", { name: "Validate", exact: true }).press("Enter");
   await expect(page.getByRole("heading", { name: "Ask the evidence to hold up." })).toBeVisible();
+  await expect.poll(() => page.locator(".topologyViewport").evaluate(el => el.scrollLeft)).toBeGreaterThan(0);
+  await expect(page.locator("[data-node=validate] .nodeValue")).toBeVisible();
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await expect(page.locator(".workflowStep.selected .workflowStepArrow")).toHaveCSS("animation-name", "none");
-  for (const width of [390, 768, 1024, 1280, 1440]) {
+  await expect(page.locator(".protocolHalo")).toHaveCSS("animation-name", "none");
+  await expect(page.locator(".selectedTrace")).toHaveCSS("animation-name", "none");
+  for (const width of [768, 1024, 1280, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    expect(await page.locator(".workflowGuide").evaluate(el => el.scrollWidth <= el.clientWidth)).toBeTruthy();
+    expect(await page.locator(".topologyViewport").evaluate(el => el.querySelector("svg")!.getBoundingClientRect().width <= el.clientWidth + 1)).toBeTruthy();
   }
   await page.locator(".ledgerDisclosure > summary").click();
   await expect(

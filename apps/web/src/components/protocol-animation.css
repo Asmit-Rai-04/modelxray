@@ -1,0 +1,35 @@
+/* Illustrative motion is limited to the landing protocol, never job progress. */
+.animatedProtocol .investigationMap svg { min-width: 640px; }
+@media (min-width: 621px) {
+  .animatedProtocol .investigationMap svg { min-width: 0; }
+}
+.animatedProtocol .protocolHalo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: protocol-pulse 1.4s ease-out 3;
+}
+.animatedProtocol .protocolSelected .nodePoint {
+  animation: protocol-point 1.4s ease-in-out 3;
+}
+.animatedProtocol .selectedTrace {
+  stroke: var(--accent);
+  stroke-dasharray: 12 8;
+  animation: protocol-flow 1.2s linear 3;
+}
+@keyframes protocol-pulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  55% { transform: scale(1.18); opacity: .35; }
+}
+@keyframes protocol-point {
+  0%,100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+@keyframes protocol-flow {
+  from { stroke-dashoffset: 20; }
+  to { stroke-dashoffset: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .animatedProtocol .protocolHalo,
+  .animatedProtocol .protocolSelected .nodePoint,
+  .animatedProtocol .selectedTrace { animation: none; }
+}

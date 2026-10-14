@@ -1,6 +1,12 @@
 # Ink / Olive review and verification
 
-## Latest focused update: light-only workflow guide
+## Latest focused update: original diagram with subtle animation
+
+Restored the original landing SVG, shared node/edge geometry, branch layout, stage buttons and explanations; removed the replacement card guide. Added scoped `protocol-animation.css` for finite selected-ring/point pulses and moving dashes on the incoming path. Animations replay on stage selection, stop within five seconds and respect reduced motion. Desktop diagrams scale to fit their panel; mobile keeps keyboard-accessible local scrolling. Light-only appearance and analytical/backend workflows are unchanged.
+
+Executed: TypeScript and production build passed; the complete browser/live API suite **20 passed**. After the final desktop-fit adjustment, the production build and **three targeted tests passed** for stage interaction, animation/reduced motion, keyboard/mobile behavior, desktop containment, shared SVG alignment and light-theme accessibility. Screenshots were reviewed. The previously disclosed browser/manual assistive-technology limitations still apply.
+
+## Earlier focused update: light-only workflow guide
 
 Removed dark theme tokens, initialization and toggle; the existing light palette is fixed before first paint regardless of saved or system dark preference. Replaced only the landing workflow diagram with `workflow-guide.tsx` and its scoped CSS: six selectable steps, boundary/regression relationships, optional play/pause and reduced-motion support. Existing analytical diagrams and backend behavior are unchanged.
 

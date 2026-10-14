@@ -104,7 +104,7 @@ export function InvestigationMap({
               key={`${a}-${b}`}
               data-from={topology[a].id}
               data-to={topology[b].id}
-              className={`mapTrace ${b > 5 ? "branch" : ""}`}
+              className={`mapTrace ${b > 5 ? "branch" : ""} ${activeNode === topology[b].id ? "selectedTrace" : ""}`}
               d={
                 b > 5
                   ? `M${topology[a].x} ${topology[a].y} C${topology[a].x + 100} ${topology[a].y} ${topology[b].x + 100} ${topology[b].y} ${topology[b].x} ${topology[b].y}`
