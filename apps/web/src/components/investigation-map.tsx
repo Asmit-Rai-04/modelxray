@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
 import type { Result } from "../lib/types";
 // One coordinate table defines both node centers and every edge endpoint.
 export const topology = [
@@ -21,6 +21,11 @@ const edges = [
   [4, 6],
   [5, 7],
 ];
+function edgePath(a: number, b: number) {
+  return b > 5
+    ? `M${topology[a].x} ${topology[a].y} C${topology[a].x + 100} ${topology[a].y} ${topology[b].x + 100} ${topology[b].y} ${topology[b].x} ${topology[b].y}`
+    : `M${topology[a].x} ${topology[a].y} L${topology[b].x} ${topology[b].y}`;
+}
 export function InvestigationMap({
   result,
   activeNode,
@@ -105,12 +110,11 @@ export function InvestigationMap({
               data-from={topology[a].id}
               data-to={topology[b].id}
               className={`mapTrace ${b > 5 ? "branch" : ""} ${activeNode === topology[b].id ? "selectedTrace" : ""}`}
-              d={
-                b > 5
-                  ? `M${topology[a].x} ${topology[a].y} C${topology[a].x + 100} ${topology[a].y} ${topology[b].x + 100} ${topology[b].y} ${topology[b].x} ${topology[b].y}`
-                  : `M${topology[a].x} ${topology[a].y} L${topology[b].x} ${topology[b].y}`
-              }
+              d={edgePath(a, b)}
             />
+          ))}
+          {activeNode && !result && edges.map(([a, b]) => (
+            <path key={`reveal-${a}-${b}`} className="mapReveal" aria-hidden="true" pathLength={1} d={edgePath(a, b)} style={{ "--reveal-delay": `${a * 350}ms` } as CSSProperties} />
           ))}
           {topology.map((n, i) => (
             <g
@@ -118,6 +122,7 @@ export function InvestigationMap({
               data-node={n.id}
               className={`mapNode ${result ? "active" : ""} ${activeNode === n.id ? "protocolSelected" : ""} ${n.id === "atlas" && result && result.failure_atlas.length > 0 ? "red" : "neutral"}`}
               transform={`translate(${n.x} ${n.y})`}
+              style={activeNode && !result ? { "--reveal-delay": `${i * 350}ms` } as CSSProperties : undefined}
             >
               <title>{`${n.label}: ${values[i]}`}</title>
               {activeNode === n.id && (

@@ -1,5 +1,11 @@
 # Ink / Olive review and verification
 
+## Reference-inspired motion refinement
+
+Used DesignBall's [Flow Chart Slide](https://dribbble.com/shots/6269129-Flow-Chart-Slide) as inspiration for staged connection drawing and staggered node reveals. Preserved the existing diagram, light palette, semantics and real backend behavior. Temporary drawing overlays share the original path function and fade away; no reference percentages, assets or statistical claims were imported. Motion is limited to the landing illustration, finishes under five seconds, and respects reduced motion.
+
+Production build/type validation passed. Four targeted browser tests passed: stage interaction and keyboard/mobile behavior; path drawing, timing and reduced motion; shared endpoint geometry across widths/scales; landing and all five workspace accessibility/responsive checks. `git diff --check` passed. Earlier complete live API verification remains recorded below; it was not repeated for this illustration-only refinement.
+
 ## Latest focused update: original diagram with subtle animation
 
 Restored the original landing SVG, shared node/edge geometry, branch layout, stage buttons and explanations; removed the replacement card guide. Added scoped `protocol-animation.css` for finite selected-ring/point pulses and moving dashes on the incoming path. Animations replay on stage selection, stop within five seconds and respect reduced motion. Desktop diagrams scale to fit their panel; mobile keeps keyboard-accessible local scrolling. Light-only appearance and analytical/backend workflows are unchanged.

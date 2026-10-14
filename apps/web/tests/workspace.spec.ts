@@ -120,6 +120,9 @@ test("landing explains the real protocol and keeps the ledger compact", async ({
   await expect(page.locator(".protocolHalo")).toHaveCSS("animation-name", "protocol-pulse");
   await expect(page.locator(".selectedTrace")).toHaveCSS("animation-name", "protocol-flow");
   await expect(page.locator(".protocolHalo")).toHaveCSS("animation-iteration-count", "3");
+  await expect(page.locator(".mapReveal")).toHaveCount(7);
+  await expect(page.locator(".mapReveal").first()).toHaveCSS("animation-name", "protocol-draw");
+  await expect(page.locator("[data-node=regression]")).toHaveCSS("animation-delay", "2.45s");
   await page.setViewportSize({ width: 390, height: 844 });
   await guide.getByRole("button", { name: "Profile", exact: true }).click();
   await guide.getByRole("button", { name: "Validate", exact: true }).press("Enter");
@@ -129,6 +132,8 @@ test("landing explains the real protocol and keeps the ledger compact", async ({
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect(page.locator(".protocolHalo")).toHaveCSS("animation-name", "none");
   await expect(page.locator(".selectedTrace")).toHaveCSS("animation-name", "none");
+  await expect(page.locator(".mapReveal").first()).toHaveCSS("display", "none");
+  await expect(page.locator("[data-node=regression]")).toHaveCSS("animation-name", "none");
   for (const width of [768, 1024, 1280, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     expect(await page.locator(".topologyViewport").evaluate(el => el.querySelector("svg")!.getBoundingClientRect().width <= el.clientWidth + 1)).toBeTruthy();
