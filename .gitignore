@@ -13,3 +13,9 @@ node_modules/
 *.log
 
 data/assets/
+apps/web/.test-artifacts/
+apps/web/.preview-data/
+apps/web/test-results/
+apps/web/playwright-report/
+apps/web/audit-report.json
+apps/web/tsconfig.tsbuildinfo
