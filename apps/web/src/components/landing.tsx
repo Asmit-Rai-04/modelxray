@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { InvestigationMap } from "./investigation-map";
+import { WorkflowGuide } from "./workflow-guide";
 import { Icon, StatusDot } from "./ui";
 
 const protocol = [
@@ -101,7 +101,7 @@ export function Landing({
         </div>
       </div>
       <div className="protocolInstrument">
-        <InvestigationMap activeNode={protocol[stage].node} />
+        <WorkflowGuide stage={stage} onSelect={setStage} />
         <div
           className="protocolControls"
           role="group"
@@ -118,7 +118,7 @@ export function Landing({
             </button>
           ))}
         </div>
-        <div className="protocolDescription" role="status" aria-live="polite">
+        <div key={stage} className="protocolDescription workflowDescription" role="status" aria-live="polite">
           <span className="eyebrow">PROTOCOL / 0{stage + 1}</span>
           <h3>{protocol[stage].title}</h3>
           <p>{protocol[stage].copy}</p>

@@ -1,28 +1,8 @@
 /* ModelXray · Ink / Olive. Shared semantic tokens, independent of layout. */
 :root {
-  color-scheme: dark;
-  --bg: #0d0e0c;
-  --bg2: #151813;
-  --panel: #151813;
-  --panel2: #191d17;
-  --panel3: #232820;
-  --line: #32372c;
-  --line2: #32372c;
-  --control-border: #717a66;
-  --text: #eeefe9;
-  --muted: #b5baae;
-  --faint: #919a88;
-  --accent: #a8b78b;
-  --accent-hover: #b9c9a0;
-  --accent-deep: #52644c;
-  --accent-bg: #242d20;
   --accent2: var(--accent);
   --accent3: var(--accent);
-  --red: #d78c84;
-  --amber: #d7b57b;
   --green: var(--accent);
-  --info: #94adbe;
-  --on-accent: #0d0e0c;
   --shadow: none;
   --sans: var(--font-geist), "Segoe UI", system-ui, sans-serif;
   --mono: var(--font-plex), Consolas, monospace;
@@ -35,8 +15,7 @@
   --space-4: 16px;
   --space-6: 24px;
   --space-8: 32px;
-}
-html[data-theme="light"] {
+
   color-scheme: light;
   --bg: #f5f4ef;
   --bg2: #ffffff;

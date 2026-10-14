@@ -49,7 +49,6 @@ export default function Workspace() {
     "accuracy",
   );
   const [uploading, setUploading] = useState(false);
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [showInvestigationSetup, setShowInvestigationSetup] = useState(false);
 
   const [health, setHealth] = useState<"checking" | "online" | "offline">(
@@ -72,18 +71,6 @@ export default function Workspace() {
   const lifecycle = useInvestigationJob(receiveResult);
   const busy = lifecycle.busy || loading !== null || uploading;
   useEffect(() => {
-    let saved: string | null = null;
-    try {
-      saved = window.localStorage.getItem("modelxray-theme");
-    } catch {}
-    const next =
-      saved === "light" || saved === "dark"
-        ? saved
-        : window.matchMedia("(prefers-color-scheme: light)").matches
-          ? "light"
-          : "dark";
-    setTheme(next);
-    document.documentElement.dataset.theme = next;
     const models = storage.get("models");
     const datasets = storage.get("datasets");
     try {
@@ -148,15 +135,6 @@ export default function Workspace() {
     setComparisonError(null);
     setActiveTab("overview");
     setShowInvestigationSetup(true);
-  }
-
-  function toggleTheme() {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    document.documentElement.dataset.theme = next;
-    try {
-      window.localStorage.setItem("modelxray-theme", next);
-    } catch {}
   }
 
   function navigateWorkspace(tab: Tab) {
@@ -491,15 +469,6 @@ export default function Workspace() {
           ))}
         </nav>
           <div className="headerActions">
-            <button
-              className="themeButton"
-              onClick={toggleTheme}
-              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-              title={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-            >
-              <Icon name={theme === "dark" ? "sun" : "moon"} />
-              <span>{theme === "dark" ? "Light" : "Dark"}</span>
-            </button>
             <button
               className="primaryButton"
               onClick={openInvestigationSetup}

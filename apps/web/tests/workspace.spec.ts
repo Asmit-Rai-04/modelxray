@@ -116,20 +116,23 @@ test("landing explains the real protocol and keeps the ledger compact", async ({
   await expect(
     page.getByRole("heading", { name: "Ask the evidence to hold up." }),
   ).toBeVisible();
-  await expect(page.locator("[data-node=validate]")).toHaveClass(
-    /protocolSelected/,
-  );
   await page.setViewportSize({ width: 390, height: 844 });
-  await guide.getByRole("button", { name: "Profile", exact: true }).click();
-  await guide.getByRole("button", { name: "Validate", exact: true }).click();
-  await expect
-    .poll(() =>
-      page
-        .locator(".topologyViewport")
-        .evaluate((element) => element.scrollLeft),
-    )
-    .toBeGreaterThan(0);
-  await expect(page.locator("[data-node=validate] .nodeValue")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Explore Validate step" })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator(".workflowGuide")).toBeVisible();
+  await page.getByRole("button", { name: "Play walkthrough" }).click();
+  await expect(page.getByRole("button", { name: "Pause walkthrough" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Explore Atlas step" })).toHaveAttribute("aria-pressed", "true");
+  await page.getByRole("button", { name: "Explore Profile step" }).click();
+  await expect(page.getByRole("button", { name: "Play walkthrough" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Start with the evaluation context." })).toBeVisible();
+  await page.getByRole("button", { name: "Explore Validate step" }).press("Enter");
+  await expect(page.getByRole("heading", { name: "Ask the evidence to hold up." })).toBeVisible();
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(page.locator(".workflowStep.selected .workflowStepArrow")).toHaveCSS("animation-name", "none");
+  for (const width of [390, 768, 1024, 1280, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    expect(await page.locator(".workflowGuide").evaluate(el => el.scrollWidth <= el.clientWidth)).toBeTruthy();
+  }
   await page.locator(".ledgerDisclosure > summary").click();
   await expect(
     page.getByRole("combobox", { name: "Previous investigations" }),
@@ -267,19 +270,19 @@ test("all five workspaces have distinct empty states and working navigation", as
     page.getByRole("heading", { name: "See the behavior behind the score." }),
   ).toBeVisible();
 });
-test("theme preference persists and system preference initializes without hydration errors", async ({
-  page,
-}) => {
+test("light theme overrides saved dark and system preferences without hydration errors", async ({ page }) => {
   const errors: string[] = [];
-  page.on("pageerror", (e) => errors.push(e.message));
-  await page.emulateMedia({ colorScheme: "light" });
+  page.on("pageerror", e => errors.push(e.message));
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.addInitScript(() => localStorage.setItem("modelxray-theme", "dark"));
   await go(page);
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
-  await page.getByRole("button", { name: "Switch to dark theme" }).click();
+  await expect(page.getByRole("button", { name: /Switch to .* theme/ })).toHaveCount(0);
   await page.reload();
-  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
   expect(errors).toEqual([]);
 });
+
 test("API health starts unknown and errors remain recoverable", async ({
   page,
 }) => {
@@ -467,7 +470,7 @@ test("regression uses real fixture deltas, score units and warnings", async ({
 test("shared topology edge endpoints exactly coincide with node centers at widths and zoom", async ({
   page,
 }) => {
-  await go(page);
+  await go(page, true);
   for (const width of [390, 768, 1024, 1280, 1440])
     for (const zoom of [1, 1.5, 2]) {
       await page.setViewportSize({ width, height: 900 });
@@ -495,16 +498,13 @@ test("shared topology edge endpoints exactly coincide with node centers at width
       expect(detached).toBe(0);
     }
 });
-for (const theme of ["light", "dark"])
+for (const theme of ["light"])
   test(`enhanced landing is accessible in ${theme} theme`, async ({ page }) => {
     await go(page);
-    if ((await page.locator("html").getAttribute("data-theme")) !== theme)
-      await page
-        .getByRole("button", { name: `Switch to ${theme} theme` })
-        .click();
+
     await expect(page.locator("html")).toHaveCSS(
       "color",
-      theme === "dark" ? "rgb(238, 239, 233)" : "rgb(27, 33, 25)",
+      "rgb(27, 33, 25)",
     );
     await page.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
     await page.screenshot({
@@ -531,16 +531,12 @@ for (const theme of ["light", "dark"])
     });
   });
 
-for (const theme of ["light", "dark"])
+for (const theme of ["light"])
   test(`accessibility, responsive containment and focus in ${theme} theme`, async ({
     page,
   }) => {
     await go(page, true);
-    if ((await page.locator("html").getAttribute("data-theme")) !== theme) {
-      await page
-        .getByRole("button", { name: `Switch to ${theme} theme` })
-        .click();
-    }
+
 
     for (const tab of [
       "Overview",
@@ -621,10 +617,9 @@ test("Ink Olive tokens, local fonts and readable disconnected state", async ({ p
   await expect(page.getByRole("alert").first()).toContainText("Cannot reach the ModelXray API");
   await expect(page.getByText("Failed to fetch", { exact: true })).toHaveCount(0);
   await expect(page.getByRole("button", { name: "Refresh history" })).toBeEnabled();
-  for (const theme of ["dark", "light"]) {
-    if ((await page.locator("html").getAttribute("data-theme")) !== theme)
-      await page.getByRole("button", { name: `Switch to ${theme} theme` }).click();
-    await expect(page.locator("html")).toHaveCSS("background-color", theme === "dark" ? "rgb(13, 14, 12)" : "rgb(245, 244, 239)");
+  for (const theme of ["light"]) {
+
+    await expect(page.locator("html")).toHaveCSS("background-color", "rgb(245, 244, 239)");
     await page.evaluate(() => document.fonts.ready);
     expect(await page.locator("h1").evaluate(el => getComputedStyle(el).fontFamily)).toContain("geist");
     expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze()).violations).toEqual([]);

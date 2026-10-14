@@ -1,5 +1,11 @@
 # Ink / Olive review and verification
 
+## Latest focused update: light-only workflow guide
+
+Removed dark theme tokens, initialization and toggle; the existing light palette is fixed before first paint regardless of saved or system dark preference. Replaced only the landing workflow diagram with `workflow-guide.tsx` and its scoped CSS: six selectable steps, boundary/regression relationships, optional play/pause and reduced-motion support. Existing analytical diagrams and backend behavior are unchanged.
+
+Executed: TypeScript check and production build passed; `npx playwright test` **20 passed in 1.1 minutes**, including live model uploads/regression, fixed light theme after reload, workflow play/pause/manual selection, keyboard activation, reduced motion, containment at five widths and light-theme accessibility scans. `git diff --check` passed. Screenshots were reviewed at desktop and mobile widths. The earlier two-theme verification below records the previous version; current tests target the retained light theme. The previously disclosed cross-browser/manual assistive-technology limitations still apply.
+
 Working branch: `feat/ink-olive-design-system`. The latest working frontend is preserved in local checkpoint `a1db417` on `feat/premium-investigation-workspace`. No backend statistical code was modified. No branch was pushed or merged into main.
 
 ## Changes for review

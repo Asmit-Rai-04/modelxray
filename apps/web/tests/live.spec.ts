@@ -132,9 +132,8 @@ test("live backend: real model upload, new investigation and uploaded regression
   await expect(
     page.getByRole("heading", { name: "Failure movement" }),
   ).toBeVisible();
-  for (const theme of ["dark", "light"]) {
-    if ((await page.locator("html").getAttribute("data-theme")) !== theme)
-      await page.getByRole("button", { name: `Switch to ${theme} theme` }).click();
+  for (const theme of ["light"]) {
+
     expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze()).violations).toEqual([]);
     await page.evaluate(() => { if (document.activeElement instanceof HTMLElement) document.activeElement.blur(); window.scrollTo(0, 0); });
     await page.screenshot({ path: path.resolve(`.test-artifacts/uploaded-regression-${theme}.png`), fullPage: true });
