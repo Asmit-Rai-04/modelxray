@@ -8,6 +8,8 @@ Inspection refinements: mobile Overview rows retain severity and discovery gap. 
 
 ## Foundation
 
+Panel content uses `--panel-gutter`: 24px on desktop, 20px below 900px and 16px below 620px. Headings, filters, embedded chart captions and lists share this inset; embedded plots do not add a second horizontal gutter. Regression rows align the condition and labeled discovery gap in two columns, stack below 900px, and expand evidence across the full row. Atlas selections retain their text position. Metric separators follow the responsive column count, with the final mobile metric spanning both columns.
+
 `src/app/tokens.css` owns both palettes, font aliases, spacing and motion. `globals.css` is the single component and responsive stylesheet. The previous override stylesheet has been removed. Compatibility aliases `accent2` and `accent3` resolve to olive; chart information uses `info`.
 
 | Role | Dark | Light |

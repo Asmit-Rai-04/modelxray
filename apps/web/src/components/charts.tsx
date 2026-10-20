@@ -25,7 +25,7 @@ function IntervalChart({
   const [expanded, setExpanded] = useState(false);
   if (!rows.length)
     return (
-      <p className="panelFootnote">No evidence available for this chart.</p>
+      <div className="chartEmpty"><strong>{title}</strong><p className="panelFootnote">No evidence available for this chart.</p><p className="panelFootnote">{description}</p></div>
     );
   const values = rows
     .flatMap((r) => [r.value, r.low ?? r.value, r.high ?? r.value])

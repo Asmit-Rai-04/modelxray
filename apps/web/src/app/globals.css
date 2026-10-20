@@ -970,10 +970,10 @@ svg {
   min-width: 0;
 }
 .regressionListRow {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 14px 4px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, auto);
+  gap: 12px 24px;
+  padding: 20px 0;
   border-bottom: 1px solid var(--line2);
   align-items: flex-start;
 }
@@ -1433,7 +1433,7 @@ th {
 .experimentHead > :nth-child(4),.experimentHead > :nth-child(5),.experimentHead > :nth-child(6) { text-align: right; }
 .tableScrollHint { display: none; color: var(--muted); font-size: 12px; }
 .experimentTable:focus-visible,.regressionList:focus-visible,.boundaryEvidenceList:focus-visible { outline-offset: -3px; }
-.transitionEvidence { margin-top: 12px; }
+.transitionEvidence { grid-column: 1 / -1; min-width: 0; margin-top: 0; }
 .transitionEvidence summary { font-size: 13px; color: var(--accent); }
 .transitionEvidenceGrid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; padding: 16px; background: var(--panel2); border-radius: 6px; }
 .transitionEvidenceGrid h3 { font-size: 14px; margin: 0 0 12px; }
@@ -2907,6 +2907,73 @@ progress {
   gap: 0;
   border-block: 1px solid var(--line);
   background: var(--panel2);
+}
+.overviewGrid .contentPanel,.overviewGrid > .contentPanel:not(.wide),.failureList,.failureDetail,.familyCard,
+.coverageHero,.comparisonVisual,.comparisonMap,.registrationPanel,
+.experimentWorkspace,.investigationSetup,.regressionResults {
+  padding: var(--panel-gutter);
+}
+.regressionResults > .analysisFigure,.experimentWorkspace > .analysisFigure {
+  padding: 24px 0;
+}
+.chartEmpty {
+  padding: var(--panel-gutter);
+  color: var(--muted);
+}
+.regressionResults > .chartEmpty,.experimentWorkspace > .chartEmpty {
+  padding: 20px 0;
+}
+.chartEmpty > strong { color: var(--text); font-size: 15px; }
+.chartEmpty .panelFootnote { margin: 8px 0 0; max-width: 85ch; }
+.regressionDeltaValue { min-width: 0; padding-top: 2px; font-variant-numeric: tabular-nums; }
+.regressionDeltaValue span { display: block; font-size: 12px; margin-bottom: 8px; }
+.regressionDeltaValue strong { color: var(--text); font-weight: 500; }
+.regressionList { margin-top: 16px; }
+.regressionEmpty > .emptyState { border: 0; }
+.regressionCounts > div { border: 0; }
+.regressionCounts > div:nth-child(odd) { border-right: 1px solid var(--line); }
+.regressionCounts > div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+.comparisonScene { background: transparent; }
+.regFlow span { align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
+.regFlow span br { display: none; }
+.versionRail { grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); }
+.failureListItem,.failureListItem:hover,.failureListItem.selected { padding-inline: 12px; }
+.failureListTop { gap: 8px; flex-wrap: wrap; }
+.familyCard { display: flex; flex-direction: column; }
+.familyCard .coverageBlindSpots { margin-top: auto; padding-top: 16px; border-top: 0; }
+.familyCard .coverageBlindSpots > summary { border-top: 1px solid var(--line); }
+.metricGrid { grid-template-columns: repeat(5,minmax(0,1fr)); }
+.metric { min-width: 0; }
+.metricTop { gap: 8px; }
+.metric small { overflow-wrap: anywhere; }
+.overviewGrid > .contentPanel > .sectionHeader { flex-wrap: wrap; gap: 12px; }
+.overviewGrid > .contentPanel > .sectionHeader .textButton { padding-inline: 0; }
+.analysisToolbar input,.analysisToolbar select,.regSelectors select { width: 100%; min-width: 0; }
+.experimentHead,.experimentRow { padding-inline: 8px; }
+@media (max-width:1180px) {
+  .metricGrid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .metric { border-bottom: 1px solid var(--line); }
+  .metric:nth-child(3n) { border-right: 0; }
+  .metric:nth-last-child(-n+2) { border-bottom: 0; }
+}
+@media (max-width:900px) {
+  :root { --panel-gutter: 20px; }
+  .metricGrid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .metric:nth-child(3n) { border-right: 1px solid var(--line); }
+  .metric:nth-child(even) { border-right: 0; }
+  .metric:nth-last-child(2) { border-bottom: 1px solid var(--line); }
+  .metric:last-child { grid-column: 1 / -1; border-right: 0; }
+  .regressionListRow { grid-template-columns: minmax(0,1fr); }
+  .regressionDeltaValue { text-align: left; }
+  .regressionDeltaValue span { display: inline; margin-right: 12px; }
+  .sectionHeader { flex-wrap: wrap; gap: 12px; }
+  .runBanner { flex-wrap: wrap; gap: 12px; }
+}
+@media (max-width:620px) {
+  :root { --panel-gutter: 16px; }
+  .analysisFigure { padding: var(--panel-gutter); }
+  .versionRail { grid-template-columns: minmax(0,1fr); }
+  .emptyActions { flex-wrap: wrap; }
 }
 .primaryButton:hover {
   transform: none;

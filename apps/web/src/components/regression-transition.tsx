@@ -8,6 +8,11 @@ export function RegressionTransition({ delta: d }: { delta: RegressionDelta }) {
         <span className={`statusInline ${d.status.toLowerCase()}`}>{d.status}</span>
         <strong>{d.condition_v2 ?? d.condition_v1 ?? "Unmatched region"}</strong>
         <small>{d.experiment_id_v1 ?? "—"} → {d.experiment_id_v2 ?? "—"}</small>
+      </div>
+      <div className="regressionDeltaValue">
+        <span>Discovery gap</span>
+        <strong>{d.gap_v1 != null && d.gap_v2 != null ? `${pp(d.gap_v1)} → ${pp(d.gap_v2)}` : d.gap_v2 != null ? `NEW · ${pp(d.gap_v2)}` : d.gap_v1 != null ? `FIXED · was ${pp(d.gap_v1)}` : "—"}</strong>
+      </div>
         <details className="transitionEvidence">
           <summary>Inspect transition evidence</summary>
           <div className="transitionEvidenceGrid">
@@ -26,10 +31,6 @@ export function RegressionTransition({ delta: d }: { delta: RegressionDelta }) {
           </div>
           <p className="panelFootnote">Backend match: {d.match_type?.replaceAll("_", " ") ?? "Not reported"}. Missing values indicate no measurement was returned.</p>
         </details>
-      </div>
-      <div className="regressionDeltaValue">
-        {d.gap_v1 != null && d.gap_v2 != null ? `${pp(d.gap_v1)} → ${pp(d.gap_v2)}` : d.gap_v2 != null ? `NEW · ${pp(d.gap_v2)}` : d.gap_v1 != null ? `FIXED · was ${pp(d.gap_v1)}` : "—"}
-      </div>
     </article>
   );
 }

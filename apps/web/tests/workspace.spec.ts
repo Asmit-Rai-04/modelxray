@@ -668,6 +668,50 @@ for (const theme of ["light"])
     ).toBe("0s");
   });
 
+test("panel gutters, chart headings and expanded transitions stay aligned", async ({ page }) => {
+  await go(page, true);
+  for (const width of [320, 390, 768, 1024, 1440, 1920]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const tab of ["Overview", "Failure Atlas", "Experiments", "Search Coverage", "Regression"]) {
+      await navigate(page, tab);
+      if (tab === "Regression" && !await page.locator(".regressionResults").count()) {
+        await page.getByRole("button", { name: "Compare demo versions", exact: true }).click();
+      }
+      const panels = page.locator(".contentPanel:visible");
+      for (const panel of await panels.all()) {
+        const header = panel.locator(":scope > .sectionHeader");
+        if (!await header.count()) continue;
+        const inset = await header.evaluate(el => el.getBoundingClientRect().left - el.parentElement!.getBoundingClientRect().left);
+        expect(inset, `${tab} heading gutter at ${width}`).toBeGreaterThanOrEqual(16);
+        expect(inset).toBeLessThanOrEqual(25);
+      }
+      if (tab === "Experiments") {
+        const offset = await page.locator(".experimentWorkspace").evaluate(el => el.querySelector(".analysisFigure h3")!.getBoundingClientRect().left - el.querySelector(".sectionHeader")!.getBoundingClientRect().left);
+        expect(Math.abs(offset)).toBeLessThan(1);
+      }
+      if (tab === "Regression") {
+        const row = page.locator(".regressionListRow").first();
+        await row.locator("summary").click();
+        const geometry = await row.evaluate(el => {
+          const detail = el.querySelector("details")!.getBoundingClientRect();
+          const rect = el.getBoundingClientRect();
+          const value = el.querySelector(".regressionDeltaValue")!.getBoundingClientRect();
+          return { inset: detail.left - rect.left, width: rect.width - detail.width, inside: value.right <= rect.right + 1 };
+        });
+        expect(Math.abs(geometry.inset)).toBeLessThan(1);
+        expect(Math.abs(geometry.width)).toBeLessThan(1);
+        expect(geometry.inside).toBeTruthy();
+        await row.locator("summary").click();
+      }
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBeTruthy();
+      if (width === 390) {
+        await page.evaluate(() => window.scrollTo(0, 0));
+        await page.screenshot({ path: path.resolve(`.test-artifacts/alignment-${tab.replaceAll(" ", "-")}-mobile.png`), fullPage: true });
+      }
+    }
+  }
+});
+
 test("Ink Olive tokens, local fonts and readable disconnected state", async ({ page }) => {
   await page.route(`${base}/**`, (route) => route.abort("connectionrefused"));
   await page.goto("/");

@@ -1,5 +1,11 @@
 # Ink / Olive review and verification
 
+## Alignment review · 20 October 2026
+
+Reviewed all five populated workspaces, landing, setup, empty/error states and expanded regression evidence. Added responsive shared panel gutters, removed nested chart indentation, aligned regression conditions with labeled discovery gaps and full-width disclosures, stabilized Atlas selection insets, corrected wrapped metric separators, aligned coverage-card disclosures and equalized regression-flow node heights. Chart-empty states retain titles and explain the missing paired evidence. Backend code and measurements are unchanged.
+
+`npm test` passed fixture generation, TypeScript, production build and **23 tests**, including two live API tests. The final gutter/flow refinements then passed another production build and **three targeted browser tests** covering regression evidence, all-workspace accessibility/containment and geometric alignment. Alignment checks cover 320, 390, 768, 1024, 1440 and 1920px; the existing suite also checks 1280px. Desktop and all five mobile workspace screenshots were reviewed. Tested axe states reported no violations. Cross-browser, manual screen-reader and touch-hardware checks remain unverified.
+
 ## Current all-workspace review
 
 Reviewed Overview, Failure Atlas, Experiments, Search Coverage and Regression in the live preview and through isolated browser tests. Retained the light palette, approved animated landing diagram, existing API contracts and backend statistical code. Coverage and the landing composition needed no further redesign.

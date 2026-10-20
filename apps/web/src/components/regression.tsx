@@ -212,7 +212,7 @@ export function Regression({
           </div>
         </section>
       ) : (
-        <section className="contentPanel">
+        <section className="contentPanel regressionEmpty">
           <EmptyState
             eyebrow="MODEL REGRESSION"
             title="No comparison has been run yet."
@@ -391,7 +391,7 @@ export function Regression({
         </div>
       </section>
       {comparison && (
-        <section className="contentPanel">
+        <section className="contentPanel regressionResults">
           <SectionHeader
             eyebrow="REGRESSION DELTAS"
             title="Failure movement"
